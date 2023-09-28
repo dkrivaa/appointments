@@ -37,6 +37,7 @@ def organize():
             return pref_list
         else:
             st.write('Your file is not intact')
+            exit()
 
 
     df['prefs'] = df.apply(make_list, axis=1)
