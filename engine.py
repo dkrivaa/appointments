@@ -62,6 +62,8 @@ def organize():
     free_positions = []
     free_officers = []
 
+    special_list = []
+
     def init_free_positions():
         for position in position_dict.keys():
             free_positions.append(position)
@@ -72,7 +74,6 @@ def organize():
     def stable_matching():
         while len(free_positions) > 0:
             for position in free_positions:
-                special_list = []
                 special_list.append(position)
                 if special_list.count(position) < 5:
                     begin_matching(position)
