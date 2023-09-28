@@ -32,7 +32,11 @@ def organize():
 
     # making preferences into list and dropping the individual columns
     def make_list(row):
-        return list(row[['pref_1', 'pref_2', 'pref_3']])
+        pref_list = list(row[['pref_1', 'pref_2', 'pref_3']])
+        if len(pref_list) == len(set(pref_list)):
+            return pref_list
+        else:
+            st.write('Your file is not intact')
 
 
     df['prefs'] = df.apply(make_list, axis=1)
