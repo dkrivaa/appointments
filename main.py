@@ -3,7 +3,8 @@ import streamlit as st
 import engine
 import example
 
-
+###############################################
+### EXAMPLE FILE
 df = example.example()
 def convert_df(df):
     return df.to_csv(index=False).encode('utf-8')
@@ -14,6 +15,7 @@ st.download_button('Download example CSV file',
                    file_name='example.csv',
                    mime='text/csv')
 st.markdown('___')
+#########################################
 
 engine.read_data()
 
