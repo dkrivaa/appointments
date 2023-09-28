@@ -80,7 +80,7 @@ def organize():
                 elif 5 <= special_list.count(position) < 10:
                     special_matching(position)
                 else:
-                    st.write('why does the program not break?')
+                    st.write('Quitting due to inability to find solution for all positions')
                     quit()
 
     def begin_matching(position):
