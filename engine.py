@@ -80,6 +80,7 @@ def organize():
                 elif 5 <= special_list.count(position) < 10:
                     special_matching(position)
                 else:
+                    st.write('why does the program not break?')
                     break
 
     def begin_matching(position):
