@@ -101,7 +101,7 @@ def organize():
 
     init_free_positions()
     stable_matching()
+    st.subheader('The optimal appointments:')
     for i in range(0, len(df_position)):
-        st.subheader('The optimal appointments:')
         st.write(f'Appoint *{tentative_appoint[i][1]}* to {tentative_appoint[i][0]}')
 
