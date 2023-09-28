@@ -72,8 +72,13 @@ def organize():
     def stable_matching():
         while len(free_positions) > 0:
             for position in free_positions:
-                begin_matching(position)
-                special_matching(position)
+                special_list = []
+                if special_list.count(position) < 5:
+                    begin_matching(position)
+                elif 5 <= special_list.count(position) < 10:
+                    special_matching(position)
+                else:
+                    break
 
     def begin_matching(position):
         print(f'Dealing with position {position}')
