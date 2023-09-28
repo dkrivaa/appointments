@@ -73,6 +73,7 @@ def organize():
         while len(free_positions) > 0:
             for position in free_positions:
                 special_list = []
+                special_list.append(position)
                 if special_list.count(position) < 5:
                     begin_matching(position)
                 elif 5 <= special_list.count(position) < 10:
