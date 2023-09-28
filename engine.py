@@ -36,7 +36,8 @@ def organize():
         if len(pref_list) == len(set(pref_list)):
             return pref_list
         else:
-            st.write('Your file is not intact')
+            st.write('Your file is not intact (identical preference by position/employee).'
+                     'Please check and submit file after correction')
             exit()
 
 
