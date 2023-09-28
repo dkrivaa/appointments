@@ -109,7 +109,7 @@ def organize():
                     break
 
             else:
-                chosen_officer = [chosen for chosen in free_officers if position in officer_dict[chosen]]
+                chosen_officer = [chosen for chosen in free_officers if position == officer_dict[chosen].index[0]]
                 tentative_appoint.append([position, chosen_officer])
                 free_positions.remove(position)
                 print(f'{chosen_officer} is tentatively appointed to {position}')
