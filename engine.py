@@ -40,12 +40,12 @@ def organize():
     df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
 
     # breaking dataframe into two parts for positions and officers
-    df_position = df.loc[df['pos_off'] == 'p']
+    df_position = df.loc[df['position_or_officer'] == 'p']
     position_list = df_position['id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
 
-    df_officer = df.loc[df['pos_off'] == 'o']
+    df_officer = df.loc[df['position_or_officer'] == 'o']
     officer_list = df_officer['id'].tolist()
     officer_pref_list = df_officer['prefs'].tolist()
     officer_dict = dict(zip(officer_list, officer_pref_list))
