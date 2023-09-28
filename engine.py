@@ -81,7 +81,7 @@ def organize():
                     special_matching(position)
                 else:
                     st.write('why does the program not break?')
-                    break
+                    quit()
 
     def begin_matching(position):
         print(f'Dealing with position {position}')
