@@ -73,6 +73,7 @@ def organize():
         while len(free_positions) > 0:
             for position in free_positions:
                 begin_matching(position)
+                special_matching(position)
 
     def begin_matching(position):
         print(f'Dealing with position {position}')
@@ -101,24 +102,28 @@ def organize():
                 if current_position < potential_position:
                     print('the officer is happy with his present tentative position')
 
-                elif current_position > potential_position:
+                else:
                     print('the officer is happier with the new position')
                     free_positions.remove(position)
                     free_positions.append(taken_match[0][0])
                     taken_match[0][0] = position
                     break
 
-                else:
-                    chosen_officer = [chosen for chosen in free_officers if position == officer_dict[chosen].index[0]]
-                    tentative_appoint.append([position, chosen_officer])
-                    free_positions.remove(position)
-                    print(f'{chosen_officer} is tentatively appointed to {position}')
+                # else:
+                #     chosen_officer = [chosen for chosen in free_officers if position == officer_dict[chosen].index[0]]
+                #     tentative_appoint.append([position, chosen_officer])
+                #     free_positions.remove(position)
+                #     print(f'{chosen_officer} is tentatively appointed to {position}')
+                #
+                #     break
 
-                    break
+    def special_matching(position):
+        st.write(f'special {position}')
 
     init_free_positions()
     init_free_officers()
     stable_matching()
+
     st.subheader('The optimal appointments:')
     for i in range(0, len(df_position)):
         st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
