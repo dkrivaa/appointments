@@ -56,82 +56,84 @@ def organize():
     officer_pref_list = df_officer['prefs'].tolist()
     officer_dict = dict(zip(officer_list, officer_pref_list))
 
-    # The stable matching algorithm
+    st.write(officer_dict)
 
-    tentative_appoint = []
-    free_positions = []
-    free_officers = []
-
-    special_list = []
-
-    def init_free_positions():
-        for position in position_dict.keys():
-            free_positions.append(position)
-
-    def init_free_officers():
-        for officer in officer_dict.keys():
-            free_officers.append(officer)
-    def stable_matching():
-        while len(free_positions) > 0:
-            for position in free_positions:
-                special_list.append(position)
-                if special_list.count(position) < 5:
-                    begin_matching(position)
-                elif 5 <= special_list.count(position) < 10:
-                    special_matching(position)
-                else:
-                    st.write('Quitting due to inability to find solution for all positions')
-                    quit()
-
-    def begin_matching(position):
-        print(f'Dealing with position {position}')
-        for officer in position_dict[position]:
-
-            taken_match = [couple for couple in tentative_appoint if officer in couple]
-
-            if len(taken_match) == 0:
-                tentative_appoint.append([position, officer])
-                free_positions.remove(position)
-                free_officers.remove(officer)
-                print(f'{officer} is tentatively appointed to {position}')
-                break
-
-            elif len(taken_match) > 0:
-                print(f'{officer} is tentatively appointed already')
-                try:
-                    current_position = officer_dict[officer].index(taken_match[0][0])
-                except:
-                    current_position = len(df_position) - 1
-                try:
-                    potential_position = officer_dict[officer].index(position)
-                except:
-                    potential_position = len(df_position)
-
-                if current_position < potential_position:
-                    print('the officer is happy with his present tentative position')
-
-                else:
-                    print('the officer is happier with the new position')
-                    free_positions.remove(position)
-                    free_positions.append(taken_match[0][0])
-                    taken_match[0][0] = position
-                    break
-
-
-    def special_matching(position):
-
-        chosen_officer = [chosen for chosen in free_officers if position == officer_dict[chosen].index[0]]
-        tentative_appoint.append([position, chosen_officer])
-        free_positions.remove(position)
-        print(f'{chosen_officer} is tentatively appointed to {position}')
-
-
-
-    init_free_positions()
-    init_free_officers()
-    stable_matching()
-
-    st.subheader('The optimal appointments:')
-    for i in range(0, len(df_position)):
-        st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
+    # # The stable matching algorithm
+    #
+    # tentative_appoint = []
+    # free_positions = []
+    # free_officers = []
+    #
+    # special_list = []
+    #
+    # def init_free_positions():
+    #     for position in position_dict.keys():
+    #         free_positions.append(position)
+    #
+    # def init_free_officers():
+    #     for officer in officer_dict.keys():
+    #         free_officers.append(officer)
+    # def stable_matching():
+    #     while len(free_positions) > 0:
+    #         for position in free_positions:
+    #             special_list.append(position)
+    #             if special_list.count(position) < 5:
+    #                 begin_matching(position)
+    #             elif 5 <= special_list.count(position) < 10:
+    #                 special_matching(position)
+    #             else:
+    #                 st.write('Quitting due to inability to find solution for all positions')
+    #                 quit()
+    #
+    # def begin_matching(position):
+    #     print(f'Dealing with position {position}')
+    #     for officer in position_dict[position]:
+    #
+    #         taken_match = [couple for couple in tentative_appoint if officer in couple]
+    #
+    #         if len(taken_match) == 0:
+    #             tentative_appoint.append([position, officer])
+    #             free_positions.remove(position)
+    #             free_officers.remove(officer)
+    #             print(f'{officer} is tentatively appointed to {position}')
+    #             break
+    #
+    #         elif len(taken_match) > 0:
+    #             print(f'{officer} is tentatively appointed already')
+    #             try:
+    #                 current_position = officer_dict[officer].index(taken_match[0][0])
+    #             except:
+    #                 current_position = len(df_position) - 1
+    #             try:
+    #                 potential_position = officer_dict[officer].index(position)
+    #             except:
+    #                 potential_position = len(df_position)
+    #
+    #             if current_position < potential_position:
+    #                 print('the officer is happy with his present tentative position')
+    #
+    #             else:
+    #                 print('the officer is happier with the new position')
+    #                 free_positions.remove(position)
+    #                 free_positions.append(taken_match[0][0])
+    #                 taken_match[0][0] = position
+    #                 break
+    #
+    #
+    # def special_matching(position):
+    #
+    #     chosen_officer = [chosen for chosen in free_officers if position == officer_dict[chosen].index[0]]
+    #     tentative_appoint.append([position, chosen_officer])
+    #     free_positions.remove(position)
+    #     print(f'{chosen_officer} is tentatively appointed to {position}')
+    #
+    #
+    #
+    # init_free_positions()
+    # init_free_officers()
+    # stable_matching()
+    #
+    # st.subheader('The optimal appointments:')
+    # for i in range(0, len(df_position)):
+    #     st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
 
