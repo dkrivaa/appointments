@@ -57,7 +57,7 @@ def organize():
     officer_dict = dict(zip(officer_list, officer_pref_list))
 
     st.write(officer_dict)
-    st.write(officer_dict['officer20'].index[0])
+    st.write(officer_dict['officer20'][0])
 
     # # The stable matching algorithm
     #
