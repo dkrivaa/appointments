@@ -126,11 +126,9 @@ def organize():
             tentative_appoint.append([position, chosen_officer[0]])
             free_positions.remove(position)
         else:
-            tentative_appoint.append([position, chosen_officer][0])
+            tentative_appoint.append([position, chosen_officer])
             free_positions.remove(position)
             print(f'{chosen_officer} is tentatively appointed to {position}')
-
-
 
     init_free_positions()
     init_free_officers()
