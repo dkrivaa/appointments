@@ -124,7 +124,7 @@ def organize():
         chosen_officer = [chosen for chosen in free_officers if position in officer_dict[chosen]]
         st.write(position)
         st.write(chosen_officer)
-        st.write([position, chosen_officer])
+        st.write([position, chosen_officer[0]])
         tentative_appoint.append([position, chosen_officer])
         free_positions.remove(position)
         print(f'{chosen_officer} is tentatively appointed to {position}')
