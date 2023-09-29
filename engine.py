@@ -120,7 +120,8 @@ def organize():
 
     def special_matching(position):
 
-        chosen_officer = [chosen for chosen in free_officers if position in officer_dict[chosen]][0]
+        chosen_officer = [chosen for chosen in free_officers if position in officer_dict[chosen]]
+        st.write(free_officers)
         st.write(chosen_officer)
         st.write([position, chosen_officer])
         tentative_appoint.append([position, chosen_officer])
