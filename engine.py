@@ -89,6 +89,8 @@ def organize():
 
             taken_match = [couple for couple in tentative_appoint if officer in couple]
 
+            st.write(officer)
+
             if len(taken_match) == 0:
                 tentative_appoint.append([position, officer])
                 free_positions.remove(position)
