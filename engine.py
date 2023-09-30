@@ -139,10 +139,17 @@ def organize():
     stable_matching()
 
     # Showing results
-    st.write(position_dict)
     st.subheader('The optimal appointments:')
+    pos_count = 0
+    off_count = 0
     for i in range(0, len(df_position)):
         st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
+
+        if tentative_appoint[i][1] in position_dict[tentative_appoint[i][0]]:
+            pos_count += 1
+
+    st.write(f'Number of positions that got top wishes: {pos_count}')
+
 
     # Making csv file of results to download
     pos = [sublist[0] for sublist in tentative_appoint]
