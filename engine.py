@@ -138,7 +138,10 @@ def organize():
     init_free_officers()
     stable_matching()
 
+    # Showing results
     st.subheader('The optimal appointments:')
     for i in range(0, len(df_position)):
         st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
+
+        st.write(type(tentative_appoint[0]))
 
