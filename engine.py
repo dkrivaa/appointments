@@ -144,8 +144,17 @@ def organize():
     for i in range(0, len(df_position)):
         st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
 
+    # Making csv file of results to download
     pos = [sublist[0] for sublist in tentative_appoint]
-    st.write(pos)
-
     off = [sublist[1] for sublist in tentative_appoint]
-    st.write(off)
+    df_results = pd.DataFrame({'position': pos, 'employee': off})
+
+    def convert_df(df_any):
+        return df_any.to_csv().encode('utf-8')
+    down_result = convert_df(df_results)
+
+    st.download_button('Download results',
+                       data=down_result,
+                       file_name='results.csv',
+                       mime='text/csv')
+
