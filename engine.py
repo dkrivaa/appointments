@@ -1,3 +1,5 @@
+import random
+
 import streamlit as st
 import pandas as pd
 
@@ -121,14 +123,17 @@ def organize():
     def special_matching(position):
 
         chosen_officer = [chosen for chosen in free_officers if position in officer_dict[chosen]]
-        if len(chosen_officer) == 0:
-            chosen_officer.append('No officer')
+        if len(chosen_officer) != 0:
             tentative_appoint.append([position, chosen_officer[0]])
             free_positions.remove(position)
-        else:
-            tentative_appoint.append([position, chosen_officer[0]])
-            free_positions.remove(position)
+            free_officers.remove(chosen_officer[0])
             print(f'{chosen_officer} is tentatively appointed to {position}')
+
+        else:
+            st.write(free_officers)
+            chosen_officer = random.choice(free_officers)
+            tentative_appoint.append([position, chosen_officer[0]])
+            free_positions.remove(position)
 
     init_free_positions()
     init_free_officers()
