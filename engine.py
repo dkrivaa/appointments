@@ -171,5 +171,6 @@ def organize():
     st.download_button('Download results',
                        data=down_result,
                        file_name='results.csv',
-                       mime='text/csv')
+                       mime='text/csv',
+                       type='primary')
 
