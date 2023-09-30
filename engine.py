@@ -148,7 +148,14 @@ def organize():
         if tentative_appoint[i][1] in position_dict[tentative_appoint[i][0]]:
             pos_count += 1
 
-    st.write(f'Number of positions that got top wishes: {pos_count}')
+        if tentative_appoint[i][0] in officer_dict[tentative_appoint[i][1]]:
+            off_count += 1
+
+    st.markdown('___')
+
+    st.subheader('Summary')
+    st.write(f'Number of positions that got one of top wishes: {pos_count}')
+    st.write(f'Number of employees that got one of top wishes: {off_count}')
 
 
     # Making csv file of results to download
