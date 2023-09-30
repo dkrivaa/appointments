@@ -145,6 +145,7 @@ def organize():
     for i in range(0, len(df_position)):
         st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
 
+        # Calculating how many got one of top wishes
         if tentative_appoint[i][1] in position_dict[tentative_appoint[i][0]]:
             pos_count += 1
 
@@ -171,6 +172,6 @@ def organize():
     st.markdown('___')
 
     st.subheader('Summary')
-    st.write(f'Number of positions that got one of top wishes: {pos_count}')
-    st.write(f'Number of employees that got one of top wishes: {off_count}')
+    st.write(f'Number of positions that got one of top wishes: **{pos_count}**')
+    st.write(f'Number of employees that got one of top wishes: **{off_count}**')
 
