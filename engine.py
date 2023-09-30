@@ -140,9 +140,12 @@ def organize():
 
     # Showing results
     st.subheader('The optimal appointments:')
-    st.write(tentative_appoint[0])
-    st.write(type(tentative_appoint[0]))
+
     for i in range(0, len(df_position)):
         st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
 
+    pos = [sublist[0] for sublist in tentative_appoint]
+    st.write(pos)
 
+    off = [sublist[1] for sublist in tentative_appoint]
+    st.write(off)
