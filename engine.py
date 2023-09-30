@@ -25,11 +25,11 @@ def organize():
     df = st.session_state.df
 
     # Adding 'o' or 'p' to preference to imply if referring to officer or position
-    df['pref_1'] = df.apply(lambda row: 'employee' + str(row['pref_1']) if row['position_or_officer'] == 'p'
+    df['pref_1'] = df.apply(lambda row: 'officer' + str(row['pref_1']) if row['position_or_officer'] == 'p'
                             else 'position' + str(row['pref_1']), axis=1)
-    df['pref_2'] = df.apply(lambda row: 'employee' + str(row['pref_2']) if row['position_or_officer'] == 'p'
+    df['pref_2'] = df.apply(lambda row: 'officer' + str(row['pref_2']) if row['position_or_officer'] == 'p'
                             else 'position' + str(row['pref_2']), axis=1)
-    df['pref_3'] = df.apply(lambda row: 'employee' + str(row['pref_3']) if row['position_or_officer'] == 'p'
+    df['pref_3'] = df.apply(lambda row: 'officer' + str(row['pref_3']) if row['position_or_officer'] == 'p'
                             else 'position' + str(row['pref_3']), axis=1)
 
     # making preferences into list and dropping the individual columns
