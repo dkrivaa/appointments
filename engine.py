@@ -132,6 +132,7 @@ def organize():
         else:
             st.write(free_officers)
             chosen_officer = random.choice(free_officers)
+            st.write(chosen_officer)
             tentative_appoint.append([position, chosen_officer[0]])
             free_positions.remove(position)
 
