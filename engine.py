@@ -182,5 +182,5 @@ def organize():
     st.subheader('Summary')
     st.write(f'Number of positions that got one of top wishes: **{pos_count}**')
     st.write(f'Number of employees that got one of top wishes: **{off_count}** '
-             f'(out of {possible} possible)')
+             f'(out of {possible} that have corresponding wishes with positions)')
 
