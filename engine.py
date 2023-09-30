@@ -58,6 +58,14 @@ def organize():
     officer_pref_list = df_officer['prefs'].tolist()
     officer_dict = dict(zip(officer_list, officer_pref_list))
 
+    # Calculating how many officers have matching preferences with positions
+    possible = 0
+    for officer in officer_list:
+        for position in officer_dict[officer]:
+            if officer in position_dict[position]:
+                possible += 1
+                break
+
     # The stable matching algorithm
 
     tentative_appoint = []
@@ -173,5 +181,6 @@ def organize():
 
     st.subheader('Summary')
     st.write(f'Number of positions that got one of top wishes: **{pos_count}**')
-    st.write(f'Number of employees that got one of top wishes: **{off_count}**')
+    st.write(f'Number of employees that got one of top wishes: **{off_count}** '
+             f'(out of {possible} possible')
 
