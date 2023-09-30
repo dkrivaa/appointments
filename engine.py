@@ -150,7 +150,8 @@ def organize():
     df_results = pd.DataFrame({'position': pos, 'employee': off})
 
     def convert_df(df_any):
-        return df_any.to_csv().encode('utf-8')
+        return df_any.to_csv(index=False).encode('utf-8')
+
     down_result = convert_df(df_results)
 
     st.download_button('Download results',
