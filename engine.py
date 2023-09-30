@@ -130,9 +130,7 @@ def organize():
             print(f'{chosen_officer} is tentatively appointed to {position}')
 
         else:
-            st.write(free_officers)
             chosen_officer = random.choice(free_officers)
-            st.write(chosen_officer)
             tentative_appoint.append([position, chosen_officer])
             free_positions.remove(position)
 
