@@ -113,18 +113,18 @@ def organize():
             elif len(taken_match) > 0:
                 print(f'{employee} is tentatively appointed already')
                 st.write(taken_match[0][0], employee)
-                st.write(position_dict[position].index[employee])
+                st.write(position_dict[position].index(employee))
 
 
                 def points(position, employee):
                     if employee not in position_dict[position]:
                         position_points = 0
                     else:
-                        position_points = 8 - position_dict[position].index[employee]
+                        position_points = 8 - position_dict[position].index(employee)
                     if employee not in position_dict[position]:
                         employee_points = 0
                     else:
-                        employee_points = 5 - employee_dict[employee].index[position]
+                        employee_points = 5 - employee_dict[employee].index(position)
                     points = position_points + employee_points
                     return points
 
