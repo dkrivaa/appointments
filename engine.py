@@ -118,54 +118,56 @@ def organize():
         for employee in position_dict[position]:
 
             points = points(position, employee)
-            if points > best_employee[0][1]:
+            if points < best_employee[0][1]:
+                break
+            else:
                 best_employee.pop(0)
                 best_employee.append((employee, points))
                 st.write(best_employee)
 
-            taken_match = [couple for couple in tentative_appoint if employee in couple]
+                taken_match = [couple for couple in tentative_appoint if employee in couple]
 
-            if len(taken_match) == 0:
-                tentative_appoint.append([position, employee])
-                free_positions.remove(position)
-                free_employees.remove(employee)
-                st.write(f'{employee} is tentatively appointed to {position}')
-                break
-
-            elif len(taken_match) > 0:
-                st.write(f'{employee} is tentatively appointed already')
-
-                current_position_points = points(taken_match[0][0], employee)
-                potential_position_points = points(position, employee)
-
-                if current_position_points >= potential_position_points:
-                    st.write('the present tentative position is a better match')
-
-                else:
-                    st.write('the new position is a better match')
+                if len(taken_match) == 0:
+                    tentative_appoint.append([position, employee])
                     free_positions.remove(position)
-                    free_positions.append(taken_match[0][0])
-                    taken_match[0][0] = position
+                    free_employees.remove(employee)
+                    st.write(f'{employee} is tentatively appointed to {position}')
                     break
 
-                # try:
-                #     current_position = employee_dict[employee].index(taken_match[0][0])
-                # except:
-                #     current_position = len(df_position) - 1
-                # try:
-                #     potential_position = employee_dict[employee].index(position)
-                # except:
-                #     potential_position = len(df_position)
-                #
-                # if current_position < potential_position:
-                #     print('the employee is happy with his present tentative position')
-                #
-                # else:
-                #     print('the employee is happier with the new position')
-                #     free_positions.remove(position)
-                #     free_positions.append(taken_match[0][0])
-                #     taken_match[0][0] = position
-                #     break
+                elif len(taken_match) > 0:
+                    st.write(f'{employee} is tentatively appointed already')
+
+                    current_position_points = points(taken_match[0][0], employee)
+                    potential_position_points = points(position, employee)
+
+                    if current_position_points >= potential_position_points:
+                        st.write('the present tentative position is a better match')
+
+                    else:
+                        st.write('the new position is a better match')
+                        free_positions.remove(position)
+                        free_positions.append(taken_match[0][0])
+                        taken_match[0][0] = position
+                        break
+
+                    # try:
+                    #     current_position = employee_dict[employee].index(taken_match[0][0])
+                    # except:
+                    #     current_position = len(df_position) - 1
+                    # try:
+                    #     potential_position = employee_dict[employee].index(position)
+                    # except:
+                    #     potential_position = len(df_position)
+                    #
+                    # if current_position < potential_position:
+                    #     print('the employee is happy with his present tentative position')
+                    #
+                    # else:
+                    #     print('the employee is happier with the new position')
+                    #     free_positions.remove(position)
+                    #     free_positions.append(taken_match[0][0])
+                    #     taken_match[0][0] = position
+                    #     break
 
     def special_matching(position):
 
