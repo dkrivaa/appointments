@@ -119,8 +119,8 @@ def organize():
             points = points(position, employee)
             points_list.append(points)
 
-            employee = position_dict[position].index(points_list.index(max(points_list)))
-            st.write(employee)
+        employee = position_dict[position].index(points_list.index(max(points_list)))
+        st.write(employee)
 
             # taken_match = [couple for couple in tentative_appoint if employee in couple]
             #
