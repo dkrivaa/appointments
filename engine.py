@@ -116,14 +116,14 @@ def organize():
 
 
                 def points(position, employee):
-                    if employee in position_dict[position]:
-                        position_points = 8 - position_dict[position].index[employee]
-                    else:
+                    if employee not in position_dict[position]:
                         position_points = 0
-                    if position in employee_dict[employee]:
-                        employee_points = 5 - employee_dict[employee].index[position]
                     else:
+                        position_points = 8 - position_dict[position].index[employee]
+                    if employee not in position_dict[position]:
                         employee_points = 0
+                    else:
+                        employee_points = 5 - employee_dict[employee].index[position]
                     points = position_points + employee_points
                     return points
 
