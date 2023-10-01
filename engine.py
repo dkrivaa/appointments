@@ -115,7 +115,7 @@ def organize():
         st.write(f'Dealing with position {position}')
 
         for employee in position_dict[position]:
-
+            st.write(employee)
             point = points(position, employee)
             st.write(point)
 
