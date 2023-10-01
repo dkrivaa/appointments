@@ -140,7 +140,7 @@ def organize():
                 #     break
 
                 try:
-                    # current_position = employee_dict[employee].index(taken_match[0][0])
+                    current_position = employee_dict[employee].index(taken_match[0][0])
                 except:
                     current_position = len(df_position) - 1
                 try:
