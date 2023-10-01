@@ -113,13 +113,7 @@ def organize():
             return points
 
         st.write(f'Dealing with position {position}')
-        points_list = []
         for employee in position_dict[position]:
-
-            st.write(employee)
-            points = points(position, employee)
-            points_list.append(points)
-
 
             taken_match = [couple for couple in tentative_appoint if employee in couple]
 
