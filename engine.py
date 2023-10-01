@@ -112,7 +112,7 @@ def organize():
             points = position_points + employee_points
             return points
 
-        st.write(f'Dealing with position {position}')
+        st.write(f'Dealing with {position}')
 
         # Sorting position pref list by combined points of prefs
         best_list = []
