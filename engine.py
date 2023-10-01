@@ -113,12 +113,13 @@ def organize():
             return points
 
         st.write(f'Dealing with position {position}')
-        best_employee = []   # new
+        best_employee = [('temp', -1)]   # new
 
         for employee in position_dict[position]:
 
             points = points(position, employee)
             if points > best_employee[0][1]:
+                best_employee.pop(0)
                 best_employee.append((employee, points))
                 st.write(best_employee)
 
