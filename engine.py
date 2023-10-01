@@ -82,7 +82,7 @@ def organize():
             free_employees.append(employee)
 
     def stable_matching():
-        if len(free_positions) < len(free_employees):
+        if len(free_positions) > len(free_employees):
             st.write('Not enough employees to fill all positions!')
             quit()
 
