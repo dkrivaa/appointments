@@ -115,37 +115,36 @@ def organize():
         st.write(f'Dealing with position {position}')
         points_list = []
         for employee in position_dict[position]:
+
             st.write(employee)
             points = points(position, employee)
             points_list.append(points)
 
-        best_employee = position_dict[position].index(points_list.index(max(points_list)))
-        st.write(best_employee)
 
-            # taken_match = [couple for couple in tentative_appoint if employee in couple]
-            #
-            # if len(taken_match) == 0:
-            #     tentative_appoint.append([position, employee])
-            #     free_positions.remove(position)
-            #     free_employees.remove(employee)
-            #     st.write(f'{employee} is tentatively appointed to {position}')
-            #     break
-            #
-            # elif len(taken_match) > 0:
-            #     st.write(f'{employee} is tentatively appointed already')
-            #
-            #     current_position_points = points(taken_match[0][0], employee)
-            #     potential_position_points = points(position, employee)
-            #
-            #     if current_position_points >= potential_position_points:
-            #         st.write('the present tentative position is a better match')
-            #
-            #     else:
-            #         st.write('the new position is a better match')
-            #         free_positions.remove(position)
-            #         free_positions.append(taken_match[0][0])
-            #         taken_match[0][0] = position
-            #         break
+            taken_match = [couple for couple in tentative_appoint if employee in couple]
+
+            if len(taken_match) == 0:
+                tentative_appoint.append([position, employee])
+                free_positions.remove(position)
+                free_employees.remove(employee)
+                st.write(f'{employee} is tentatively appointed to {position}')
+                break
+
+            elif len(taken_match) > 0:
+                st.write(f'{employee} is tentatively appointed already')
+
+                current_position_points = points(taken_match[0][0], employee)
+                potential_position_points = points(position, employee)
+
+                if current_position_points >= potential_position_points:
+                    st.write('the present tentative position is a better match')
+
+                else:
+                    st.write('the new position is a better match')
+                    free_positions.remove(position)
+                    free_positions.append(taken_match[0][0])
+                    taken_match[0][0] = position
+                    break
 
                 # try:
                 #     current_position = employee_dict[employee].index(taken_match[0][0])
