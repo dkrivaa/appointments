@@ -24,12 +24,12 @@ def read_data():
 def organize():
     df = st.session_state.df
 
-    # Adding 'o' or 'p' to preference to imply if referring to officer or position
-    df['pref_1'] = df.apply(lambda row: 'officer' + str(row['pref_1']) if row['position_or_officer'] == 'p'
+    # Adding 'e' or 'p' to preference to imply if referring to officer or position
+    df['pref_1'] = df.apply(lambda row: 'employee' + str(row['pref_1']) if row['position_or_employee'] == 'p'
                             else 'position' + str(row['pref_1']), axis=1)
-    df['pref_2'] = df.apply(lambda row: 'officer' + str(row['pref_2']) if row['position_or_officer'] == 'p'
+    df['pref_2'] = df.apply(lambda row: 'employee' + str(row['pref_2']) if row['position_or_employee'] == 'p'
                             else 'position' + str(row['pref_2']), axis=1)
-    df['pref_3'] = df.apply(lambda row: 'officer' + str(row['pref_3']) if row['position_or_officer'] == 'p'
+    df['pref_3'] = df.apply(lambda row: 'employee' + str(row['pref_3']) if row['position_or_employee'] == 'p'
                             else 'position' + str(row['pref_3']), axis=1)
 
     # making preferences into list and dropping the individual columns
@@ -39,7 +39,7 @@ def organize():
             return pref_list
         else:
             st.write('Your file is not intact (identical preference by position/employee).'
-                     'Please check and submit file after correction')
+                     'Please check and submit corrected file')
             exit()
 
 
@@ -48,21 +48,21 @@ def organize():
     df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
 
     # breaking dataframe into two parts for positions and officers
-    df_position = df.loc[df['position_or_officer'] == 'p']
+    df_position = df.loc[df['position_or_employee'] == 'p']
     position_list = df_position['id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
 
-    df_officer = df.loc[df['position_or_officer'] == 'o']
-    officer_list = df_officer['id'].tolist()
-    officer_pref_list = df_officer['prefs'].tolist()
-    officer_dict = dict(zip(officer_list, officer_pref_list))
+    df_employee = df.loc[df['position_or_employee'] == 'e']
+    employee_list = df_employee['id'].tolist()
+    employee_pref_list = df_employee['prefs'].tolist()
+    employee_dict = dict(zip(employee_list, employee_pref_list))
 
-    # Calculating how many officers have matching preferences with positions
+    # Calculating how many employees have matching preferences with positions
     possible = 0
-    for officer in officer_list:
-        for position in officer_dict[officer]:
-            if officer in position_dict[position]:
+    for employee in employee_list:
+        for position in employee_dict[employee]:
+            if employee in position_dict[position]:
                 possible += 1
                 break
 
@@ -70,7 +70,7 @@ def organize():
 
     tentative_appoint = []
     free_positions = []
-    free_officers = []
+    free_employees = []
 
     special_list = []
 
@@ -78,9 +78,9 @@ def organize():
         for position in position_dict.keys():
             free_positions.append(position)
 
-    def init_free_officers():
-        for officer in officer_dict.keys():
-            free_officers.append(officer)
+    def init_free_employees():
+        for employee in employee_dict.keys():
+            free_employees.append(employee)
     def stable_matching():
         while len(free_positions) > 0:
             for position in free_positions:
@@ -95,33 +95,33 @@ def organize():
 
     def begin_matching(position):
         print(f'Dealing with position {position}')
-        for officer in position_dict[position]:
+        for employee in position_dict[position]:
 
-            taken_match = [couple for couple in tentative_appoint if officer in couple]
+            taken_match = [couple for couple in tentative_appoint if employee in couple]
 
             if len(taken_match) == 0:
-                tentative_appoint.append([position, officer])
+                tentative_appoint.append([position, employee])
                 free_positions.remove(position)
-                free_officers.remove(officer)
-                print(f'{officer} is tentatively appointed to {position}')
+                free_employees.remove(employee)
+                print(f'{employee} is tentatively appointed to {position}')
                 break
 
             elif len(taken_match) > 0:
-                print(f'{officer} is tentatively appointed already')
+                print(f'{employee} is tentatively appointed already')
                 try:
-                    current_position = officer_dict[officer].index(taken_match[0][0])
+                    current_position = employee_dict[employee].index(taken_match[0][0])
                 except:
                     current_position = len(df_position) - 1
                 try:
-                    potential_position = officer_dict[officer].index(position)
+                    potential_position = employee_dict[employee].index(position)
                 except:
                     potential_position = len(df_position)
 
                 if current_position < potential_position:
-                    print('the officer is happy with his present tentative position')
+                    print('the employee is happy with his present tentative position')
 
                 else:
-                    print('the officer is happier with the new position')
+                    print('the employee is happier with the new position')
                     free_positions.remove(position)
                     free_positions.append(taken_match[0][0])
                     taken_match[0][0] = position
@@ -130,26 +130,26 @@ def organize():
 
     def special_matching(position):
 
-        chosen_officer = [chosen for chosen in free_officers if position in officer_dict[chosen]]
-        if len(chosen_officer) != 0:
-            tentative_appoint.append([position, chosen_officer[0]])
+        chosen_employee = [chosen for chosen in free_employees if position in employee_dict[chosen]]
+        if len(chosen_employee) != 0:
+            tentative_appoint.append([position, chosen_employee[0]])
             free_positions.remove(position)
-            free_officers.remove(chosen_officer[0])
-            print(f'{chosen_officer} is tentatively appointed to {position}')
+            free_employees.remove(chosen_employee[0])
+            print(f'{chosen_employee} is tentatively appointed to {position}')
 
         else:
-            chosen_officer = random.choice(free_officers)
-            tentative_appoint.append([position, chosen_officer])
+            chosen_employee = random.choice(free_employees)
+            tentative_appoint.append([position, chosen_employee])
             free_positions.remove(position)
 
     init_free_positions()
-    init_free_officers()
+    init_free_employees()
     stable_matching()
 
     # Showing results
     st.subheader('The optimal appointments:')
     pos_count = 0
-    off_count = 0
+    emp_count = 0
     for i in range(0, len(df_position)):
         st.write(f'Appoint **{tentative_appoint[i][1]}** to **{tentative_appoint[i][0]}**')
 
@@ -157,13 +157,13 @@ def organize():
         if tentative_appoint[i][1] in position_dict[tentative_appoint[i][0]]:
             pos_count += 1
 
-        if tentative_appoint[i][0] in officer_dict[tentative_appoint[i][1]]:
-            off_count += 1
+        if tentative_appoint[i][0] in employee_dict[tentative_appoint[i][1]]:
+            emp_count += 1
 
     # Making csv file of results to download
     pos = [sublist[0] for sublist in tentative_appoint]
-    off = [sublist[1] for sublist in tentative_appoint]
-    df_results = pd.DataFrame({'position': pos, 'employee': off})
+    emp = [sublist[1] for sublist in tentative_appoint]
+    df_results = pd.DataFrame({'position': pos, 'employee': emp})
 
     def convert_df(df_any):
         return df_any.to_csv(index=False).encode('utf-8')
@@ -182,6 +182,6 @@ def organize():
     st.subheader('Summary')
     st.write(f'Number of positions that got one of top wishes: **{pos_count}** '
              f'(out of **{len(tentative_appoint)}** open positions)')
-    st.write(f'Number of employees that got one of top wishes: **{off_count}** '
+    st.write(f'Number of employees that got one of top wishes: **{emp_count}** '
              f'(out of **{possible}** that have corresponding wishes with positions)')
 
