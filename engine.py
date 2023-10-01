@@ -117,7 +117,7 @@ def organize():
         for employee in position_dict[position]:
 
             points = points(position, employee)
-            points_list.append(points())
+            points_list.append(points)
 
             employee = position_dict[position].index(max(points_list))
 
