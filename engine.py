@@ -116,6 +116,9 @@ def organize():
 
         for employee in position_dict[position]:
 
+            point = points(position, employee)
+            st.write(point)
+
             taken_match = [couple for couple in tentative_appoint if employee in couple]
 
             if len(taken_match) == 0:
