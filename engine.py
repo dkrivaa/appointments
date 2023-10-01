@@ -123,9 +123,10 @@ def organize():
 
         best_list = sorted(best_list, key=lambda x: x[1], reverse=True)
         temp_list = [x[0] for x in best_list]
-        st.write(temp_list)
 
-        st.write(best_list)
+
+        position_dict[position] = temp_list
+        st.write(position_dict[position])
 
 
 
