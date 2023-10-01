@@ -42,7 +42,6 @@ def organize():
                      'Please check and submit corrected file')
             exit()
 
-
     df['prefs'] = df.apply(make_list, axis=1)
 
     df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
@@ -81,6 +80,7 @@ def organize():
     def init_free_employees():
         for employee in employee_dict.keys():
             free_employees.append(employee)
+
     def stable_matching():
         while len(free_positions) > 0:
             for position in free_positions:
@@ -126,7 +126,6 @@ def organize():
                     free_positions.append(taken_match[0][0])
                     taken_match[0][0] = position
                     break
-
 
     def special_matching(position):
 
