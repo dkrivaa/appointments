@@ -117,7 +117,7 @@ def organize():
         for employee in position_dict[position]:
 
             point = points(position, employee)
-            best_list.append(employee, point)
+            best_list.append((employee, point))
 
         st.write(best_list)
 
