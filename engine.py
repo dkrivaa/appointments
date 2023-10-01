@@ -107,7 +107,7 @@ def organize():
                 tentative_appoint.append([position, employee])
                 free_positions.remove(position)
                 free_employees.remove(employee)
-                print(f'{employee} is tentatively appointed to {position}')
+                st.write(f'{employee} is tentatively appointed to {position}')
                 break
 
             elif len(taken_match) > 0:
