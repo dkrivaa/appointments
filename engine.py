@@ -98,7 +98,7 @@ def organize():
                     quit()
 
     def begin_matching(position):
-        print(f'Dealing with position {position}')
+        st.write(f'Dealing with position {position}')
         for employee in position_dict[position]:
 
             taken_match = [couple for couple in tentative_appoint if employee in couple]
@@ -111,7 +111,7 @@ def organize():
                 break
 
             elif len(taken_match) > 0:
-                print(f'{employee} is tentatively appointed already')
+                st.write(f'{employee} is tentatively appointed already')
 
                 def points(position, employee):
                     if employee not in position_dict[position]:
@@ -129,10 +129,10 @@ def organize():
                 potential_position_points = points(position, employee)
 
                 if current_position_points >= potential_position_points:
-                    print('the present tentative position is a better match')
+                    st.write('the present tentative position is a better match')
 
                 else:
-                    print('the new position is a better match')
+                    st.write('the new position is a better match')
                     free_positions.remove(position)
                     free_positions.append(taken_match[0][0])
                     taken_match[0][0] = position
@@ -164,7 +164,7 @@ def organize():
             tentative_appoint.append([position, chosen_employee[0]])
             free_positions.remove(position)
             free_employees.remove(chosen_employee[0])
-            print(f'{chosen_employee} is tentatively appointed to {position}')
+            st.write(f'{chosen_employee} is tentatively appointed to {position}')
 
         else:
             chosen_employee = random.choice(free_employees)
