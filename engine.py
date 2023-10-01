@@ -114,49 +114,49 @@ def organize():
                 print(f'{employee} is tentatively appointed already')
                 st.write(taken_match[0][0])
 
-                # def points(position, employee):
-                #     if employee in position_dict[position]:
-                #         position_points = 8 - position_dict[position].index[employee]
-                #     else:
-                #         position_points = 0
-                #     if position in employee_dict[employee]:
-                #         employee_points = 5 - employee_dict[employee].index[position]
-                #     else:
-                #         employee_points = 0
-                #     points = position_points + employee_points
-                #     return points
-                #
-                # current_position_points = points(taken_match[0][0], employee)
-                # potential_position_points = points(position, employee)
-                #
-                # if current_position_points >= potential_position_points:
-                #     print('the present tentative position is a better match')
-                #
-                # else:
-                #     print('the new position is a better match')
-                #     free_positions.remove(position)
-                #     free_positions.append(taken_match[0][0])
-                #     taken_match[0][0] = position
-                #     break
+                def points(position, employee):
+                    if employee in position_dict[position]:
+                        position_points = 8 - position_dict[position].index[employee]
+                    else:
+                        position_points = 0
+                    if position in employee_dict[employee]:
+                        employee_points = 5 - employee_dict[employee].index[position]
+                    else:
+                        employee_points = 0
+                    points = position_points + employee_points
+                    return points
 
-                try:
-                    current_position = employee_dict[employee].index(taken_match[0][0])
-                except:
-                    current_position = len(df_position) - 1
-                try:
-                    potential_position = employee_dict[employee].index(position)
-                except:
-                    potential_position = len(df_position)
+                current_position_points = points(taken_match[0][0], employee)
+                potential_position_points = points(position, employee)
 
-                if current_position < potential_position:
-                    print('the employee is happy with his present tentative position')
+                if current_position_points >= potential_position_points:
+                    print('the present tentative position is a better match')
 
                 else:
-                    print('the employee is happier with the new position')
+                    print('the new position is a better match')
                     free_positions.remove(position)
                     free_positions.append(taken_match[0][0])
                     taken_match[0][0] = position
                     break
+
+                # try:
+                #     current_position = employee_dict[employee].index(taken_match[0][0])
+                # except:
+                #     current_position = len(df_position) - 1
+                # try:
+                #     potential_position = employee_dict[employee].index(position)
+                # except:
+                #     potential_position = len(df_position)
+                #
+                # if current_position < potential_position:
+                #     print('the employee is happy with his present tentative position')
+                #
+                # else:
+                #     print('the employee is happier with the new position')
+                #     free_positions.remove(position)
+                #     free_positions.append(taken_match[0][0])
+                #     taken_match[0][0] = position
+                #     break
 
     def special_matching(position):
 
