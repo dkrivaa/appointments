@@ -131,6 +131,8 @@ def organize():
                     tentative_appoint.append([position, employee])
                     free_positions.remove(position)
                     free_employees.remove(employee)
+                    best_employee.pop(0)
+                    best_employee.append(('temp', -1))
                     st.write(f'{employee} is tentatively appointed to {position}')
                     break
 
