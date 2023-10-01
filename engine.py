@@ -117,19 +117,13 @@ def organize():
         # Sorting position pref list by combined points of prefs
         best_list = []
         for employee in position_dict[position]:
-
             point = points(position, employee)
             best_list.append((employee, point))
-
         best_list = sorted(best_list, key=lambda x: x[1], reverse=True)
         temp_list = [x[0] for x in best_list]
-
-
         position_dict[position] = temp_list
-        st.write(position_dict[position])
 
-
-
+        # Going through employees to find best match
         for employee in position_dict[position]:
 
             taken_match = [couple for couple in tentative_appoint if employee in couple]
