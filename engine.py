@@ -121,7 +121,7 @@ def organize():
             point = points(position, employee)
             best_list.append((employee, point))
 
-        best_list = sorted(best_list, key=lambda x: x[1])
+        best_list = sorted(best_list, key=lambda x: x[1], reverse=True)
 
 
         st.write(best_list)
