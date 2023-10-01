@@ -112,7 +112,7 @@ def organize():
             points = position_points + employee_points
             return points
 
-        st.write(f'Dealing with {position}')
+        # st.write(f'Dealing with {position}')
 
         # Sorting position pref list by combined points of prefs
         best_list = []
@@ -132,20 +132,21 @@ def organize():
                 tentative_appoint.append([position, employee])
                 free_positions.remove(position)
                 free_employees.remove(employee)
-                st.write(f'{employee} is tentatively appointed to {position}')
+                # st.write(f'{employee} is tentatively appointed to {position}')
                 break
 
             elif len(taken_match) > 0:
-                st.write(f'{employee} is tentatively appointed already')
+                # st.write(f'{employee} is tentatively appointed already')
 
                 current_position_points = points(taken_match[0][0], employee)
                 potential_position_points = points(position, employee)
 
                 if current_position_points >= potential_position_points:
-                    st.write('the previous tentative position is a better match')
+                    pass
+                    # st.write('the previous tentative position is a better match')
 
                 else:
-                    st.write('the new position is a better match')
+                    # st.write('the new position is a better match')
                     free_positions.remove(position)
                     free_positions.append(taken_match[0][0])
                     taken_match[0][0] = position
@@ -158,7 +159,7 @@ def organize():
             tentative_appoint.append([position, chosen_employee[0]])
             free_positions.remove(position)
             free_employees.remove(chosen_employee[0])
-            st.write(f'{chosen_employee} is tentatively appointed to {position}')
+            # st.write(f'{chosen_employee} is tentatively appointed to {position}')
 
         else:
             chosen_employee = random.choice(free_employees)
