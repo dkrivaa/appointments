@@ -122,7 +122,8 @@ def organize():
             best_list.append((employee, point))
 
         best_list = sorted(best_list, key=lambda x: x[1], reverse=True)
-
+        temp_list = [x for x in best_list[0]]
+        st.write(temp_list)
 
         st.write(best_list)
 
