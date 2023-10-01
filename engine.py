@@ -142,7 +142,7 @@ def organize():
                 potential_position_points = points(position, employee)
 
                 if current_position_points >= potential_position_points:
-                    st.write('the present tentative position is a better match')
+                    st.write('the previous tentative position is a better match')
 
                 else:
                     st.write('the new position is a better match')
@@ -150,25 +150,6 @@ def organize():
                     free_positions.append(taken_match[0][0])
                     taken_match[0][0] = position
                     break
-
-                # try:
-                #     current_position = employee_dict[employee].index(taken_match[0][0])
-                # except:
-                #     current_position = len(df_position) - 1
-                # try:
-                #     potential_position = employee_dict[employee].index(position)
-                # except:
-                #     potential_position = len(df_position)
-                #
-                # if current_position < potential_position:
-                #     print('the employee is happy with his present tentative position')
-                #
-                # else:
-                #     print('the employee is happier with the new position')
-                #     free_positions.remove(position)
-                #     free_positions.append(taken_match[0][0])
-                #     taken_match[0][0] = position
-                #     break
 
     def special_matching(position):
 
