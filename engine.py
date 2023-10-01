@@ -98,6 +98,8 @@ def organize():
                     quit()
 
     def begin_matching(position):
+
+        # Function for calculating combined preferences
         def points(position, employee):
             if employee not in position_dict[position]:
                 position_points = 0
@@ -111,8 +113,14 @@ def organize():
             return points
 
         st.write(f'Dealing with position {position}')
+        best_employee = []   # new
 
         for employee in position_dict[position]:
+
+            points = points(position, employee)
+            if points > best_employee[0][1]:
+                best_employee.append((employee, points))
+                st.write(best_employee)
 
             taken_match = [couple for couple in tentative_appoint if employee in couple]
 
@@ -125,8 +133,6 @@ def organize():
 
             elif len(taken_match) > 0:
                 st.write(f'{employee} is tentatively appointed already')
-
-
 
                 current_position_points = points(taken_match[0][0], employee)
                 potential_position_points = points(position, employee)
