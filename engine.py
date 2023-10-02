@@ -24,7 +24,7 @@ def read_data():
 def organize():
     df = st.session_state.df
 
-    # Adding 'e' or 'p' to preference to imply if referring to employee or position
+    # Adding 'position' or 'employee' to preferences to imply if referring to position or employee
     df['pref_1'] = df.apply(lambda row: 'employee' + str(row['pref_1']) if row['position_or_employee'] == 'p'
                             else 'position' + str(row['pref_1']), axis=1)
     df['pref_2'] = df.apply(lambda row: 'employee' + str(row['pref_2']) if row['position_or_employee'] == 'p'
