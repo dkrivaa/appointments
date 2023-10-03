@@ -82,10 +82,10 @@ def organize():
     for i in range(2, len(df.columns)):
         df.rename(columns={df.columns[i]: f'pref_{i-1}'}, inplace=True)
 
-    # Adding 'position' or 'employee' to preferences to imply if referring to position or employee
+    # Adding the matchee's to preferences to imply if referring to position or employee
         column_name = f'pref_{i-1}'
-        df[column_name] = df.apply(lambda row: 'employee' + str(row[column_name]) if row[first_column] == 'p'
-                                   else 'position' + str(row[column_name]), axis=1)
+        df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(row[column_name]) if row[first_column] == 'p'
+                                   else f'{upperhand}' + str(row[column_name]), axis=1)
 
     # making preferences into list and dropping the individual columns
     def make_list(row):
@@ -102,7 +102,7 @@ def organize():
 
     df['prefs'] = df.apply(make_list, axis=1)
 
-    df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
+    # df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
 
     # breaking dataframe into two parts for positions and officers
     df_position = df.loc[df[first_column] == 'p']
