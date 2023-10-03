@@ -13,7 +13,7 @@ def start():
         ), disabled=True)
     if mission == 'open positions and candidates':
         upperhand = 'position'
-        lowerhand = 'employee'
+        lowerhand = 'candidate'
 
     if mission == 'other':
         upperhand = st.text_input('who/what to match:')
