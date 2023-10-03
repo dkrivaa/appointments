@@ -49,6 +49,7 @@ def read_data():
 
 def organize():
     df = st.session_state.df
+    st.write(df)
     upperhand = st.session_state.upperhand
     lowerhand = st.session_state.lowerhand
 
