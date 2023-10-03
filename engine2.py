@@ -20,8 +20,10 @@ def start():
         st.session_state.lowerhand = lowerhand
 
     # How many prefs?
-    num_of_prefs_upperhand = st.slider(f'Max number of preferences for **{upperhand}s**', min_value=1, max_value=10)
-    num_of_prefs_lowerhand = st.slider(f'Max number of preferences for **{lowerhand}s**', min_value=1, max_value=10)
+    num_of_prefs_upperhand = st.slider(f'Max number of preferences for **{upperhand}s**',
+                                       min_value=1, max_value=10, value=3)
+    num_of_prefs_lowerhand = st.slider(f'Max number of preferences for **{lowerhand}s**',
+                                       min_value=1, max_value=10, value=3)
 
     if num_of_prefs_upperhand not in st.session_state:
         st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
