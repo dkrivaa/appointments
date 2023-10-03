@@ -7,22 +7,22 @@ def start():
     st.header('The MATCH-BOX')
     st.write('Making the best match')
 
-    # # What to match?
-    # mission = st.radio('What would you like to match?', (
-    #     'open positions and candidates',
-    #     ))
-    # if mission == 'open positions and candidates':
-    #     upperhand = 'position'
-    #     lowerhand = 'employee'
-    #
-    # if mission == 'other':
-    #     upperhand = st.text_input('who/what to match:')
-    #     lowerhand = st.text_input('with whom/what?:')
-    #
-    # if upperhand not in st.session_state:
-    #     st.session_state.upperhand = upperhand
-    # if lowerhand not in st.session_state:
-    #     st.session_state.lowerhand = lowerhand
+    # What to match?
+    mission = st.radio('What would you like to match?', (
+        'open positions and candidates',
+        ), disabled=True)
+    if mission == 'open positions and candidates':
+        upperhand = 'position'
+        lowerhand = 'employee'
+
+    if mission == 'other':
+        upperhand = st.text_input('who/what to match:')
+        lowerhand = st.text_input('with whom/what?:')
+
+    if upperhand not in st.session_state:
+        st.session_state.upperhand = upperhand
+    if lowerhand not in st.session_state:
+        st.session_state.lowerhand = lowerhand
 
     st.markdown('___')
     read_data()
