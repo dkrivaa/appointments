@@ -47,9 +47,7 @@ def read_data():
         if file is not None:
             df = pd.read_csv(file)
             df = df.fillna(int(0))
-            ##################
-            st.write(df)
-            ##################
+
             if df not in st.session_state:
                 st.session_state.df = df
 
@@ -89,6 +87,9 @@ def organize():
         column_name = f'pref_{i-1}'
         df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(row[column_name]) if row[first_column] == 'p'
                                    else f'{upperhand}' + str(row[column_name]), axis=1)
+    ##################
+    st.write(df)
+    ##################
 
     # making preferences into list and dropping the individual columns
     def make_list(row):
