@@ -145,6 +145,7 @@ def organize():
         # Function for calculating combined preferences
         def points(position, employee):
             num_of_prefs_upperhand = st.session_state.num_of_prefs_upperhand
+            st.write(f'num_of_prefs_upperhand = {num_of_prefs_upperhand}')
 
             if employee not in position_dict[position]:
                 position_points = 0
