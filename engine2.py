@@ -36,7 +36,7 @@ def read_data():
         file = st.file_uploader('Choose CSV file', 'csv')
         if file is not None:
             df = pd.read_csv(file)
-            df = df.fillna(0)
+            df = int(df.fillna(0))
             if df not in st.session_state:
                 st.session_state.df = df
 
