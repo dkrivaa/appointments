@@ -49,7 +49,7 @@ def read_data():
 
 def organize():
     df = st.session_state.df
-    st.write(df)
+    # st.write(df)
     upperhand = st.session_state.upperhand
     lowerhand = st.session_state.lowerhand
 
@@ -72,6 +72,7 @@ def organize():
             col_list.append(f'pref_{i-1}')
         pref_list = list(row[col_list])
         if len(pref_list) == len(set(pref_list)):
+            st.write(pref_list)
             return pref_list
         else:
             st.write('Your file is not intact (identical preference by position/employee).'
@@ -103,6 +104,7 @@ def organize():
                     break
             except KeyError:
                 pass
+
     # The stable matching algorithm
 
     tentative_appoint = []
@@ -152,7 +154,7 @@ def organize():
             points = position_points + employee_points
             return points
 
-        st.write(f'Dealing with {position}')
+        # st.write(f'Dealing with {position}')
 
         # Sorting position pref list by combined points of prefs
         best_list = []
