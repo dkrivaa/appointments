@@ -6,8 +6,16 @@ import pandas as pd
 def start():
     st.header('The MATCH-BOX')
     mission = st.radio('What would you like to match?', (
-        'managers and employees preferences',
+        'open positions and candidates',
         'other'))
+    if mission == 'open positions and candidates':
+        upperhand = 'manager'
+        lowerhand = 'employee'
+
+    if upperhand not in st.session_state:
+        st.session_state.upperhand = upperhand
+    if lowerhand not in st.session_state:
+        st.session_state.lowerhand = lowerhand
 
     st.markdown('___')
     read_data()
@@ -32,16 +40,19 @@ def read_data():
 
 def organize():
     df = st.session_state.df
+    upperhand = st.session_state.upperhand
+    lowerhand = st.session_state.lowerhand
 
     # Renaming columns
-    df.rename(columns={df.columns[0]: 'position_or_employee'}, inplace=True)
+    first_column = f'{upperhand}_or_{lowerhand}'
+    df.rename(columns={df.columns[0]: first_column}, inplace=True)
     df.rename(columns={df.columns[1]: 'id'}, inplace=True)
     for i in range(2, len(df.columns)):
         df.rename(columns={df.columns[i]: f'pref_{i-1}'}, inplace=True)
 
     # Adding 'position' or 'employee' to preferences to imply if referring to position or employee
         column_name = f'pref_{i-1}'
-        df[column_name] = df.apply(lambda row: 'employee' + str(row[column_name]) if row['position_or_employee'] == 'p'
+        df[column_name] = df.apply(lambda row: 'employee' + str(row[column_name]) if row[first_column] == 'p'
                                    else 'position' + str(row[column_name]), axis=1)
 
     # making preferences into list and dropping the individual columns
@@ -59,12 +70,12 @@ def organize():
     df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
 
     # breaking dataframe into two parts for positions and officers
-    df_position = df.loc[df['position_or_employee'] == 'p']
+    df_position = df.loc[df[first_column] == 'p']
     position_list = df_position['id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
 
-    df_employee = df.loc[df['position_or_employee'] == 'e']
+    df_employee = df.loc[df[first_column] == 'e']
     employee_list = df_employee['id'].tolist()
     employee_pref_list = df_employee['prefs'].tolist()
     employee_dict = dict(zip(employee_list, employee_pref_list))
