@@ -166,6 +166,7 @@ def organize():
             tentative_appoint.append([position, chosen_employee])
             free_positions.remove(position)
 
+    # The following statements are initializing the matching process
     init_free_positions()
     init_free_employees()
     stable_matching()
