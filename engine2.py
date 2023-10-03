@@ -22,6 +22,9 @@ def start():
     # How many prefs?
     num_of_prefs = st.slider('Max number of preferences', min_value=3, max_value=10)
 
+    if num_of_prefs not in st.session_state:
+        st.session_state.num_of_prefs = num_of_prefs
+
     st.markdown('___')
     read_data()
 
@@ -129,14 +132,16 @@ def organize():
 
         # Function for calculating combined preferences
         def points(position, employee):
+            num_of_prefs = st.session_state.num_of_prefs
+
             if employee not in position_dict[position]:
                 position_points = 0
             else:
-                position_points = 8 - position_dict[position].index(employee)
+                position_points = num_of_prefs * 2 + 2 - position_dict[position].index(employee)
             if position not in employee_dict[employee]:
                 employee_points = 0
             else:
-                employee_points = 5 - employee_dict[employee].index(position)
+                employee_points = position_points - num_of_prefs + 0.1
             points = position_points + employee_points
             return points
 
