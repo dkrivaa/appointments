@@ -64,7 +64,7 @@ def organize():
         column_name = f'pref_{i-1}'
         df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(int(row[column_name])) if row[first_column] == 'p'
                                    else f'{upperhand}' + str(int(row[column_name])), axis=1)
-
+    st.write(df)
     # making preferences into list and dropping the individual columns
     def make_list(row):
         col_list = []
@@ -86,7 +86,6 @@ def organize():
     position_list = df_position['id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
-
 
     df_employee = df.loc[df[first_column] == 'e']
     employee_list = df_employee['id'].tolist()
