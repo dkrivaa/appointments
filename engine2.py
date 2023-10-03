@@ -5,6 +5,8 @@ import pandas as pd
 
 def start():
     st.header('The MATCH-BOX')
+
+    # What to match?
     mission = st.radio('What would you like to match?', (
         'open positions and candidates',
         'other'))
@@ -16,6 +18,9 @@ def start():
         st.session_state.upperhand = upperhand
     if lowerhand not in st.session_state:
         st.session_state.lowerhand = lowerhand
+
+    # How many prefs?
+    num_of_prefs = st.slider('Max number of preferences', min_value=1, max_value=10)
 
     st.markdown('___')
     read_data()
