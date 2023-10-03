@@ -23,18 +23,6 @@ def start():
     if lowerhand not in st.session_state:
         st.session_state.lowerhand = lowerhand
 
-    # How many prefs?
-    # num_of_prefs_upperhand = st.slider(f'Max number of preferences for **{upperhand}s**',
-    #                                    min_value=1, max_value=10, value=3)
-    # num_of_prefs_lowerhand = st.slider(f'Max number of preferences for **{lowerhand}s**',
-    #                                    min_value=1, max_value=10, value=3)
-    #
-    # if num_of_prefs_upperhand not in st.session_state:
-    #     st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
-    #
-    # if num_of_prefs_lowerhand not in st.session_state:
-    #     st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
-
     st.markdown('___')
     read_data()
 
@@ -64,18 +52,6 @@ def organize():
     upperhand = st.session_state.upperhand
     lowerhand = st.session_state.lowerhand
 
-    # num_of_prefs_upperhand = st.session_state.num_of_prefs_upperhand
-    # num_of_prefs_lowerhand = st.session_state.num_of_prefs_lowerhand
-    #
-    # # Setting number of prefs if value from slider is bigger than relevant columns in uploaded file
-    # if num_of_prefs_upperhand > len(df.columns) - 2:
-    #     num_of_prefs_upperhand = len(df.columns) - 2
-    # if num_of_prefs_lowerhand > len(df.columns) - 2:
-    #     num_of_prefs_lowerhand = len(df.columns) - 2
-    #
-    # st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
-    # st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
-
     # Renaming columns
     first_column = f'{upperhand}_or_{lowerhand}'
     df.rename(columns={df.columns[0]: first_column}, inplace=True)
@@ -104,22 +80,29 @@ def organize():
 
     df['prefs'] = df.apply(make_list, axis=1)
 
-    # df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
-
     # breaking dataframe into two parts for positions and officers
     df_position = df.loc[df[first_column] == 'p']
     position_list = df_position['id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
-    num_of_prefs_upperhand = len(max(position_pref_list, key=len))
-    st.write(num_of_prefs_upperhand)
+
 
     df_employee = df.loc[df[first_column] == 'e']
     employee_list = df_employee['id'].tolist()
     employee_pref_list = df_employee['prefs'].tolist()
     employee_dict = dict(zip(employee_list, employee_pref_list))
+
+    # Getting the number of max preferences for upperhand (positions) and lowerhand (employees)
+    num_of_prefs_upperhand = len(max(position_pref_list, key=len))
+    st.write(num_of_prefs_upperhand)
     num_of_prefs_lowerhand = len(max(employee_pref_list, key=len))
     st.write(num_of_prefs_lowerhand)
+
+    if num_of_prefs_upperhand not in st.session_state:
+        st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
+
+    if num_of_prefs_lowerhand not in st.session_state:
+        st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
 
     # Calculating how many employees have matching preferences with positions
     possible = 0
