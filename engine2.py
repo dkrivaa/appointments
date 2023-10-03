@@ -157,10 +157,7 @@ def organize():
             else:
                 employee_points = position_points - num_of_prefs_upperhand + 0.1
             points = position_points + employee_points
-            #############
-            st.write(f'num_of_prefs_upperhand = {num_of_prefs_upperhand}')
-            st.write(f'points = {points}')
-            #############
+
             return points
 
         # st.write(f'Dealing with {position}')
