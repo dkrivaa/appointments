@@ -83,9 +83,7 @@ def organize():
             exit()
 
     df['prefs'] = df.apply(make_list, axis=1)
-    #######################
-    st.write(df)
-    #######################
+
     df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
 
     # breaking dataframe into two parts for positions and officers
@@ -146,16 +144,16 @@ def organize():
 
         # Function for calculating combined preferences
         def points(position, employee):
-            num_of_prefs = st.session_state.num_of_prefs
+            num_of_prefs_upperhand = st.session_state.num_of_prefs_upperhand
 
             if employee not in position_dict[position]:
                 position_points = 0
             else:
-                position_points = num_of_prefs * 2 + 2 - position_dict[position].index(employee)
+                position_points = num_of_prefs_upperhand * 2 + 2 - position_dict[position].index(employee)
             if position not in employee_dict[employee]:
                 employee_points = 0
             else:
-                employee_points = position_points - num_of_prefs + 0.1
+                employee_points = position_points - num_of_prefs_upperhand + 0.1
             points = position_points + employee_points
             return points
 
