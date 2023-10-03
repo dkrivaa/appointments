@@ -66,8 +66,8 @@ def organize():
 
     # Adding 'position' or 'employee' to preferences to imply if referring to position or employee
         column_name = f'pref_{i-1}'
-        df[column_name] = df.apply(lambda row: 'employee' + str(row[column_name]) if row[first_column] == 'p'
-                                   else 'position' + str(row[column_name]), axis=1)
+        df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(row[column_name]) if row[first_column] == 'p'
+                                   else f'{upperhand}' + str(row[column_name]), axis=1)
 
     # making preferences into list and dropping the individual columns
     def make_list(row):
