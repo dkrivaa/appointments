@@ -271,7 +271,7 @@ def organize():
     st.markdown('___')
 
     st.subheader('Summary')
-    st.write(f'Number of **managers** that got one of top wishes: **{pos_count}** '
+    st.write(f'Number of **{upperhand}s** that got one of top wishes: **{pos_count}** '
              f'(out of **{len(tentative_appoint)}** open positions)')
-    st.write(f'Number of **employees** that got one of top wishes: **{emp_count}** '
+    st.write(f'Number of **{lowerhand}s** that got one of top wishes: **{emp_count}** '
              f'(out of **{possible}** that have corresponding wishes with positions)')
