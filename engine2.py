@@ -20,7 +20,7 @@ def start():
         st.session_state.lowerhand = lowerhand
 
     # How many prefs?
-    num_of_prefs = st.slider('Max number of preferences', min_value=1, max_value=10)
+    num_of_prefs = st.slider('Max number of preferences', min_value=3, max_value=10)
 
     st.markdown('___')
     read_data()
