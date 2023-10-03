@@ -47,6 +47,9 @@ def read_data():
         if file is not None:
             df = pd.read_csv(file)
             df = df.fillna(int(0))
+            ##################
+            st.write(df)
+            ##################
             if df not in st.session_state:
                 st.session_state.df = df
 
