@@ -123,7 +123,7 @@ def organize():
     num_of_prefs_upperhand = len([x for x in position_pref_list if x != 'employee0'])
     st.write(num_of_prefs_upperhand)
 
-    num_of_prefs_lowerhand = len([x for x in position_pref_list if x != 'position0'])
+    num_of_prefs_lowerhand = len([x for x in employee_pref_list if x != 'position0'])
     st.write(num_of_prefs_lowerhand)
     #################
 
