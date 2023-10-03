@@ -192,6 +192,9 @@ def organize():
         # Going through employees to find best match
         for employee in position_dict[position]:
 
+            if employee == 'employee0':
+               break
+
             taken_match = [couple for couple in tentative_appoint if employee in couple]
 
             if len(taken_match) == 0:
