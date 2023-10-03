@@ -97,10 +97,12 @@ def organize():
     possible = 0
     for employee in employee_list:
         for position in employee_dict[employee]:
-            if employee in position_dict[position]:
-                possible += 1
-                break
-
+            try:
+                if employee in position_dict[position]:
+                    possible += 1
+                    break
+            except KeyError:
+                pass
     # The stable matching algorithm
 
     tentative_appoint = []
