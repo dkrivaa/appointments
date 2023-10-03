@@ -11,8 +11,12 @@ def start():
         'open positions and candidates',
         'other'))
     if mission == 'open positions and candidates':
-        upperhand = 'Manager'
+        upperhand = 'Position'
         lowerhand = 'Employee'
+
+    if mission == 'other':
+        upperhand = st.text_input('who/what to match:')
+        lowerhand = st.text_input('with whom/what?:')
 
     if upperhand not in st.session_state:
         st.session_state.upperhand = upperhand
@@ -58,6 +62,18 @@ def organize():
 
     upperhand = st.session_state.upperhand
     lowerhand = st.session_state.lowerhand
+
+    num_of_prefs_upperhand = st.session_state.num_of_prefs_upperhand
+    num_of_prefs_lowerhand = st.session_state.num_of_prefs_lowerhand
+
+    # Setting number of prefs if value from slider is bigger than relevant columns in uploaded file
+    if num_of_prefs_upperhand > len(df.columns) - 2:
+        num_of_prefs_upperhand = len(df.columns) - 2
+    if num_of_prefs_lowerhand > len(df.columns) - 2:
+        num_of_prefs_lowerhand = len(df.columns) - 2
+
+    st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
+    st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
 
     # Renaming columns
     first_column = f'{upperhand}_or_{lowerhand}'
