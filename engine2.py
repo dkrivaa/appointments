@@ -8,6 +8,7 @@ def start():
     mission = st.radio('What would you like to match?', (
         'managers and employees preferences',
         'other'))
+    st.write(mission)
     st.markdown('___')
     read_data()
 
