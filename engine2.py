@@ -72,7 +72,6 @@ def organize():
             col_list.append(f'pref_{i-1}')
         pref_list = list(row[col_list])
         if len(pref_list) == len(set(pref_list)):
-            st.write(pref_list)
             return pref_list
         else:
             st.write('Your file is not intact (identical preference by position/employee).'
@@ -80,7 +79,9 @@ def organize():
             exit()
 
     df['prefs'] = df.apply(make_list, axis=1)
-
+    #######################
+    st.write(df)
+    #######################
     df = df.drop(['pref_1', 'pref_2', 'pref_3'], axis=1)
 
     # breaking dataframe into two parts for positions and officers
