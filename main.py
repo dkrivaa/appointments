@@ -18,7 +18,7 @@ st.download_button('Download example CSV file',
 st.markdown('___')
 #########################################
 
-engine2.read_data()
+engine2.start()
 
 
 
