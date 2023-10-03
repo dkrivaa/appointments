@@ -20,7 +20,8 @@ def start():
         st.session_state.lowerhand = lowerhand
 
     # How many prefs?
-    num_of_prefs = st.slider('Max number of preferences', min_value=3, max_value=10)
+    num_of_prefs_upperhand = st.slider(f'Max number of preferences for {upperhand}', min_value=1, max_value=10)
+    num_of_prefs_lowerhand = st.slider(f'Max number of preferences for {lowerhand}', min_value=1, max_value=10)
 
     if num_of_prefs not in st.session_state:
         st.session_state.num_of_prefs = num_of_prefs
@@ -49,7 +50,7 @@ def read_data():
 
 def organize():
     df = st.session_state.df
-    # st.write(df)
+
     upperhand = st.session_state.upperhand
     lowerhand = st.session_state.lowerhand
 
