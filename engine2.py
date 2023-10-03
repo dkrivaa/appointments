@@ -117,6 +117,7 @@ def organize():
     employee_list = df_employee['id'].tolist()
     employee_pref_list = df_employee['prefs'].tolist()
     employee_dict = dict(zip(employee_list, employee_pref_list))
+    st.write(employee_pref_list)
 
     # Calculating how many employees have matching preferences with positions
     possible = 0
