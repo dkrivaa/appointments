@@ -94,9 +94,7 @@ def organize():
 
     # Getting the number of max preferences for upperhand (positions) and lowerhand (employees)
     num_of_prefs_upperhand = len(max(position_pref_list, key=len))
-    st.write(num_of_prefs_upperhand)
     num_of_prefs_lowerhand = len(max(employee_pref_list, key=len))
-    st.write(num_of_prefs_lowerhand)
 
     if num_of_prefs_upperhand not in st.session_state:
         st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
