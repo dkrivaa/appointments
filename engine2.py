@@ -24,16 +24,16 @@ def start():
         st.session_state.lowerhand = lowerhand
 
     # How many prefs?
-    num_of_prefs_upperhand = st.slider(f'Max number of preferences for **{upperhand}s**',
-                                       min_value=1, max_value=10, value=3)
-    num_of_prefs_lowerhand = st.slider(f'Max number of preferences for **{lowerhand}s**',
-                                       min_value=1, max_value=10, value=3)
-
-    if num_of_prefs_upperhand not in st.session_state:
-        st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
-
-    if num_of_prefs_lowerhand not in st.session_state:
-        st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
+    # num_of_prefs_upperhand = st.slider(f'Max number of preferences for **{upperhand}s**',
+    #                                    min_value=1, max_value=10, value=3)
+    # num_of_prefs_lowerhand = st.slider(f'Max number of preferences for **{lowerhand}s**',
+    #                                    min_value=1, max_value=10, value=3)
+    #
+    # if num_of_prefs_upperhand not in st.session_state:
+    #     st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
+    #
+    # if num_of_prefs_lowerhand not in st.session_state:
+    #     st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
 
     st.markdown('___')
     read_data()
@@ -64,17 +64,17 @@ def organize():
     upperhand = st.session_state.upperhand
     lowerhand = st.session_state.lowerhand
 
-    num_of_prefs_upperhand = st.session_state.num_of_prefs_upperhand
-    num_of_prefs_lowerhand = st.session_state.num_of_prefs_lowerhand
-
-    # Setting number of prefs if value from slider is bigger than relevant columns in uploaded file
-    if num_of_prefs_upperhand > len(df.columns) - 2:
-        num_of_prefs_upperhand = len(df.columns) - 2
-    if num_of_prefs_lowerhand > len(df.columns) - 2:
-        num_of_prefs_lowerhand = len(df.columns) - 2
-
-    st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
-    st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
+    # num_of_prefs_upperhand = st.session_state.num_of_prefs_upperhand
+    # num_of_prefs_lowerhand = st.session_state.num_of_prefs_lowerhand
+    #
+    # # Setting number of prefs if value from slider is bigger than relevant columns in uploaded file
+    # if num_of_prefs_upperhand > len(df.columns) - 2:
+    #     num_of_prefs_upperhand = len(df.columns) - 2
+    # if num_of_prefs_lowerhand > len(df.columns) - 2:
+    #     num_of_prefs_lowerhand = len(df.columns) - 2
+    #
+    # st.session_state.num_of_prefs_upperhand = num_of_prefs_upperhand
+    # st.session_state.num_of_prefs_lowerhand = num_of_prefs_lowerhand
 
     # Renaming columns
     first_column = f'{upperhand}_or_{lowerhand}'
@@ -111,6 +111,11 @@ def organize():
     position_list = df_position['id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
+    #################
+    num_of_prefs_upperhand = len(position_pref_list)
+    st.write(num_of_prefs_upperhand)
+    #################
+
 
     df_employee = df.loc[df[first_column] == 'e']
     employee_list = df_employee['id'].tolist()
