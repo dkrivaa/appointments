@@ -9,7 +9,7 @@ def start():
     # What to match?
     mission = st.radio('What would you like to match?', (
         'open positions and candidates',
-        'other'))
+        ))
     if mission == 'open positions and candidates':
         upperhand = 'position'
         lowerhand = 'employee'
