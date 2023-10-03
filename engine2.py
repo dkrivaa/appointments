@@ -165,12 +165,12 @@ def organize():
             num_of_prefs_upperhand = st.session_state.num_of_prefs_upperhand
             num_of_prefs_lowerhand = st.session_state.num_of_prefs_lowerhand
 
-            if employee not in position_dict[position]:
+            if (employee not in position_dict[position]) or (employee == 'employee0'):
                 position_points = 0
             else:
                 position_points = 10 + num_of_prefs_upperhand - position_dict[position].index(employee)
 
-            if position not in employee_dict[employee]:
+            if (position not in employee_dict[employee]) or (position == 'position0'):
                 employee_points = 0
             else:
                 employee_points = 5.1 + num_of_prefs_lowerhand - employee_dict[employee].index(position)
