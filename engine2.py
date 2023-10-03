@@ -3,6 +3,10 @@ import random
 import streamlit as st
 import pandas as pd
 
+def start():
+    st.header('The MATCH-BOX')
+    read_data()
+
 
 def read_data():
     start_container = st.container()
