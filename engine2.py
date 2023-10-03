@@ -112,7 +112,7 @@ def organize():
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
     #################
-    num_of_prefs_upperhand = len(position_pref_list)
+    num_of_prefs_upperhand = len([x for x in position_pref_list if x != 'employee0'])
     st.write(num_of_prefs_upperhand)
     #################
 
