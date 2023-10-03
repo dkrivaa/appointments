@@ -8,7 +8,7 @@ def start():
     mission = st.radio('What would you like to match?', (
         'managers and employees preferences',
         'other'))
-    if mission.index == 0:
+    if mission.index == 1:
         st.write('0')
     else:
         st.write('1')
