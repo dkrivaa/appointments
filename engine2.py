@@ -11,8 +11,8 @@ def start():
         'open positions and candidates',
         'other'))
     if mission == 'open positions and candidates':
-        upperhand = 'manager'
-        lowerhand = 'employee'
+        upperhand = 'Manager'
+        lowerhand = 'Employee'
 
     if upperhand not in st.session_state:
         st.session_state.upperhand = upperhand
