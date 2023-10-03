@@ -5,6 +5,9 @@ import pandas as pd
 
 def start():
     st.header('The MATCH-BOX')
+    mission = st.radio('What would you like to match?', (
+        'managers and employees preferences',
+        'other'))
     read_data()
 
 
