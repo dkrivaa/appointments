@@ -243,10 +243,16 @@ def organize():
     st.subheader('The optimal appointments:')
     pos_count = 0
     emp_count = 0
+
+    real_position_list = []
+    real_candidate_list = []
+
     for i in range(0, len(df_position)):
         real_candidate = (df['id'][df['work_id'] == tentative_appoint[i][1]]).iloc[0]
         real_position = (df['id'][df['work_id'] == tentative_appoint[i][0]]).iloc[0]
         st.write(f'Appoint **{real_candidate}** to **{real_position}**')
+        real_position_list.append(real_position)
+        real_candidate_list.append(real_candidate)
 
         # Calculating how many got one of top wishes
         if tentative_appoint[i][1] in position_dict[tentative_appoint[i][0]]:
@@ -258,7 +264,9 @@ def organize():
     # Making csv file of results to download
     pos = [sublist[0] for sublist in tentative_appoint]
     emp = [sublist[1] for sublist in tentative_appoint]
-    df_results = pd.DataFrame({'position': pos, 'employee': emp})
+    # df_results = pd.DataFrame({'position': pos, 'employee': emp})
+    df_results = pd.DataFrame({f'{upperhand}': real_position_list,
+                               f'{lowerhand}': real_candidate_list})
 
     def convert_df(df_any):
         return df_any.to_csv(index=False).encode('utf-8')
