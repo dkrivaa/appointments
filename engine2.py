@@ -68,6 +68,8 @@ def organize():
     #                          else f'{lowerhand}' + df.index.astype(str))
     #
     # st.write(df)
+
+    make_work_id()
     #################
 
 
