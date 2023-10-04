@@ -60,7 +60,7 @@ def organize():
 
     #################
     st.write(df)
-    df['work_id'] = lambda: f'{upperhand}' + df.index.astype(str) if df[first_column] == 'p' \
+    df['work_id'] = lambda row: f'{upperhand}' + df.index.astype(str) if row[first_column] == 'p' \
         else f'{lowerhand}' + df.index.astype(str)
     # df['work_id'] = df.apply(lambda row: f'{upperhand}' + df.index.astype(str) if row[first_column] == 'p'
     #                          else f'{lowerhand}' + df.index.astype(str), axis=1)
