@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+
 def enter_data():
-    pass
+    with st.form('Enter your data'):
+        pass
