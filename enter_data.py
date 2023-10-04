@@ -3,9 +3,9 @@ import pandas as pd
 
 
 def enter_data():
-    n_prefs_pos = (st.number_input('Managers - Number of choices',
+    n_prefs_pos = st.number_input('Managers - Number of choices',
                                    min_value=1, max_value=10, value=3
-                                   ))
+                                   )
 
     with st.form('Enter your data'):
         data_type = st.radio('Choose type of data', ('open position', 'candidate'))
