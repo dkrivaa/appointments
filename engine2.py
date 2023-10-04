@@ -61,8 +61,9 @@ def organize():
     #################
     st.write(df)
 
+    condition = []
     for i in range(0, len(df)):
-        condition = [df[first_column][i]]
+        condition.append(df[first_column][i])
         # if df[first_column][i] == 'p':
         #     df['work_id'][i] = f'{upperhand}' + df.index.astype(str)
         # else:
