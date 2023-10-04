@@ -270,7 +270,7 @@ def organize():
                                f'{lowerhand}': real_candidate_list})
 
     def convert_df(df_any):
-        return df_any.to_csv(index=False).encode('utf-8')
+        return df_any.to_csv(index=False).encode('windows-1255')
 
     down_result = convert_df(df_results)
 
