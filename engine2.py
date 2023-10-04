@@ -64,19 +64,19 @@ def organize():
     df['work_id'] = np.where(df[first_column] == 'p', f'{upperhand}' + (df.index+1).astype(str),
                              f'{lowerhand}' + (df.index-x).astype(str))
 
-    for i in range(3, len(df.columns)):
-        df.rename(columns={df.columns[i]: f'pref_{i-2}'}, inplace=True)
+    for i in range(2, len(df.columns)-1):
+        df.rename(columns={df.columns[i]: f'pref_{i-1}'}, inplace=True)
 
     # Adding the matchee's to preferences to imply if referring to position or employee
-        column_name = f'pref_{i-2}'
+        column_name = f'pref_{i-1}'
         df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(row[column_name]) if row[first_column] == 'p'
                                    else f'{upperhand}' + str(row[column_name]), axis=1)
 
     # making preferences into list and dropping the individual columns
     def make_list(row):
         col_list = []
-        for i in range(3, len(df.columns)):
-            col_list.append(f'pref_{i-2}')
+        for i in range(2, len(df.columns)-1):
+            col_list.append(f'pref_{i-1}')
         pref_list = list(row[col_list])
         pref_list = [x for x in pref_list if x != f'{upperhand}0' and x != f'{lowerhand}0']
         if len(pref_list) == len(set(pref_list)):
