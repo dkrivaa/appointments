@@ -264,10 +264,10 @@ def organize():
     # Making csv file of results to download
     pos = [sublist[0] for sublist in tentative_appoint]
     emp = [sublist[1] for sublist in tentative_appoint]
-    df_results = pd.DataFrame({'position': pos, 'employee': emp})
+    # df_results = pd.DataFrame({'position': pos, 'employee': emp})
     # Code for the user entered positions and candidates (doesn't work with hebrew)
-    # df_results = pd.DataFrame({f'{upperhand}': real_position_list,
-    #                            f'{lowerhand}': real_candidate_list})
+    df_results = pd.DataFrame({f'{upperhand}': real_position_list,
+                               f'{lowerhand}': real_candidate_list})
 
     def convert_df(df_any):
         return df_any.to_csv(index=False).encode('utf-8')
