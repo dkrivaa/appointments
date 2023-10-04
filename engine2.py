@@ -35,7 +35,7 @@ def read_data():
         st.subheader('Upload your data file here')
         file = st.file_uploader('Choose CSV file', 'csv')
         if file is not None:
-            df = pd.read_csv(file, encoding='utf-8')
+            df = pd.read_csv(file, encoding='window-1255')
             df = df.fillna(int(0))
 
             if df not in st.session_state:
