@@ -7,11 +7,13 @@ def enter_data():
                                    min_value=1, max_value=10, value=3)
     n_prefs_emp = st.number_input('Candidates - Number of choices',
                                    min_value=1, max_value=10, value=3)
+    continue1 = st.button('Press to continue')
 
-    with st.form('Enter your data'):
-        data_type = st.radio('Choose type of data', ('open position', 'candidate'))
-        identity = st.text_input('Enter ID of position or candidate')
+    if continue1:
+        with st.form('Enter your data'):
+            data_type = st.radio('Choose type of data', ('open position', 'candidate'))
+            identity = st.text_input('Enter ID of position or candidate')
 
 
-        submit = st.form_submit_button()
+            submit = st.form_submit_button()
 
