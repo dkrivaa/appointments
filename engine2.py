@@ -239,6 +239,7 @@ def organize():
     pos_count = 0
     emp_count = 0
     for i in range(0, len(df_position)):
+        st.write(tentative_appoint[i][1])
         real_candidate = df.loc[df['work_id'] == tentative_appoint[i][1], 'id']
         real_position = tentative_appoint[i][0]
         st.write(f'Appoint **{real_candidate}** to **{tentative_appoint[i][0]}**')
