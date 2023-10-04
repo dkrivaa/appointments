@@ -60,8 +60,8 @@ def organize():
 
     #################
     df['work_id'] = df['id']
-    df['work-id'] = df.apply(lambda row: f'{upperhand}' + str(int(row['work_id'])) if row[first_column] == 'p'
-    else f'{lowerhand}' + str(int(row['work_id'])), axis=1)
+    df['work-id'] = df.apply(lambda row: f'{upperhand}' + str(row['work_id']) if row[first_column] == 'p'
+    else f'{lowerhand}' + str(row['work_id']), axis=1)
 
     st.write(df)
     #################
