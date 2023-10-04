@@ -6,10 +6,10 @@ import pandas as pd
 
 def start():
     st.markdown(f'<span style="color: #4b7fd1; '
-                f'font-size: 24px"><b>The MATCH-BOX</b></span>'
+                f'font-size: 36px"><b>The MATCH-BOX</b></span>'
                 , unsafe_allow_html=True)
     st.markdown(f'<span style="color: #ed7011; '
-                f'font-size: 18px"><b>'
+                f'font-size: 24px"><b>'
                 f'Making the best match !!'
                 f'</b></span>'
                 , unsafe_allow_html=True)
