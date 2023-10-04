@@ -7,6 +7,8 @@ engine2.start()
 
 ###############################################
 ### EXAMPLE FILE
+st.markdown('___')
+
 df = example.example()
 def convert_df(df):
     return df.to_csv(index=False).encode('windows-1255')
@@ -16,7 +18,6 @@ st.download_button('Download example CSV file',
                    data=csv,
                    file_name='example.csv',
                    mime='text/csv')
-st.markdown('___')
 #########################################
 
 
