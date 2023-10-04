@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def enter_data():
-    with st.form:
+    with st.form():
         n_prefs_pos = st.number_input('Managers - Number of choices',
                                       min_value=1, max_value=10, value=3)
         n_prefs_emp = st.number_input('Candidates - Number of choices',
