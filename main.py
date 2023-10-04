@@ -2,6 +2,7 @@
 import streamlit as st
 import engine2
 import example
+import enter_data
 
 engine2.start()
 
@@ -20,7 +21,10 @@ st.download_button('Download example CSV file',
                    mime='text/csv')
 #########################################
 
+my_data_button = st.button('Enter data online')
 
+if my_data_button:
+    enter_data.enter_data()
 
 
 
