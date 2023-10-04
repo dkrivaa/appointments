@@ -88,6 +88,10 @@ def organize():
 
     df['prefs'] = df.apply(make_list, axis=1)
 
+    ###################
+    st.write(df)
+    ###################
+
     # breaking dataframe into two parts for positions and officers
     df_position = df.loc[df[first_column] == 'p']
     position_list = df_position['work_id'].tolist()
