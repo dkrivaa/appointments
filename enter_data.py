@@ -10,5 +10,5 @@ def enter_data():
 
         submit = st.form_submit_button()
 
-    if submit == True:
+    if submit:
         st.write('test')
