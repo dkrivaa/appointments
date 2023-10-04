@@ -5,8 +5,17 @@ import streamlit as st
 import pandas as pd
 
 def start():
-    st.header('The MATCH-BOX')
-    st.write('Making the best match')
+    st.markdown(f'<span style="color: #4b7fd1; '
+                f'font-size: 24px"><b>The MATCH-BOX</b></span>'
+                , unsafe_allow_html=True)
+    st.markdown(f'<span style="color: #ed7011; '
+                f'font-size: 18px"><b>'
+                f'Making the best match !!'
+                f'</b></span>'
+                , unsafe_allow_html=True)
+
+    # st.header('The MATCH-BOX')
+    # st.write('Making the best match')
 
     # What to match?
     mission = st.radio('What would you like to match?', (
