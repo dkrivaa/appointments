@@ -60,10 +60,12 @@ def organize():
 
     #################
     st.write(df)
-    df['work_id'] = df.apply(lambda row: f'{upperhand}' + df.index.astype(str) if row[first_column] == 'p' \
-        else f'{lowerhand}' + df.index.astype(str), axis=1)
-    # df['work_id'] = df.apply(lambda row: f'{upperhand}' + df.index.astype(str) if row[first_column] == 'p'
-    #                          else f'{lowerhand}' + df.index.astype(str), axis=1)
+
+    def add_workid_column(df, column_name, condition_column, new_value, condition_value, else_value):
+        df[column_name] = df[condition_column].apply(lambda x: new_value if x == condition_value else else_value)
+        return df
+
+    df = add_workid_column(df, 'work_id', f'{upperhand}' + df.index.astype(str), 'p', f'{lowerhand}' + df.index.astype(str))
 
     st.write(df)
     #################
