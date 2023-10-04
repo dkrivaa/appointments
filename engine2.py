@@ -64,7 +64,7 @@ def organize():
     df['work_id'] = np.where(df[first_column] == 'p', f'{upperhand}' + (df.index+1).astype(str),
                              f'{lowerhand}' + (df.index-x).astype(str))
 
-    for i in range(2, len(df.columns)):
+    for i in range(3, len(df.columns)):
         df.rename(columns={df.columns[i]: f'pref_{i-1}'}, inplace=True)
 
     # Adding the matchee's to preferences to imply if referring to position or employee
