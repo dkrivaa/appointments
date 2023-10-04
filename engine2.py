@@ -265,6 +265,7 @@ def organize():
     pos = [sublist[0] for sublist in tentative_appoint]
     emp = [sublist[1] for sublist in tentative_appoint]
     df_results = pd.DataFrame({'position': pos, 'employee': emp})
+    # Code for the user entered positions and candidates (doesn't work with hebrew)
     # df_results = pd.DataFrame({f'{upperhand}': real_position_list,
     #                            f'{lowerhand}': real_candidate_list})
 
