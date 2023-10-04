@@ -61,7 +61,7 @@ def organize():
 
     #################
     st.write(df)
-    x = df[first_column].value_counts()['p'] + 1
+    x = df[first_column].value_counts()['p'] - 1
 
     df['work_id'] = np.where(df[first_column] == 'p', f'{upperhand}' + (df.index+1).astype(str),
                              f'{lowerhand}' + (df.index-x).astype(str))
