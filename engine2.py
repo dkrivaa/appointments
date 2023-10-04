@@ -62,7 +62,7 @@ def organize():
     st.write(df)
 
     df.loc[df[first_column] == 'p', 'work_id'] = f'{upperhand}' + df.index.astype(str)
-    # df.loc[df[first_column] == 'e', 'work_id'] = f'{lowerhand}' + df.index.astype(str)
+    df.loc[~df[first_column] == 'e', 'work_id'] = f'{lowerhand}' + df.index.astype(str)
 
     st.write(df)
 
