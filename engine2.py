@@ -278,7 +278,7 @@ def organize():
                        file_name='results.csv',
                        mime='text/csv',
                        type='primary')
-
+    st.write(real_position_list)
     # Summary data
     st.markdown('___')
 
