@@ -9,3 +9,6 @@ def enter_data():
 
 
         submit = st.form_submit_button()
+
+    if submit is not None:
+        st.write('test')
