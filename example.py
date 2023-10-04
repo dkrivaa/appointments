@@ -4,7 +4,7 @@ import pandas as pd
 # Example data
 def example():
     pos_emp = ['p', 'p', 'p', 'p', 'p', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e']
-    id = ['משרה1', 'משרה2', 'משרה3', 'position4', 'position5',
+    id = ['position1', 'position2', 'position3', 'position4', 'position5',
           'candidate1', 'candidate2', 'candidate3', 'candidate4', 'candidate5',
           'candidate6', 'candidate7', 'candidate8', 'candidate9', 'candidate10',
           'candidate11', 'candidate12', 'candidate13', 'candidate14', 'candidate15',
