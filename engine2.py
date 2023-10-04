@@ -61,13 +61,9 @@ def organize():
     #################
     st.write(df)
 
-    def add_workid_column(df, column_name, condition_column, new_value, condition_value, else_value):
-        df[column_name] = df[condition_column].apply(lambda x: new_value if x == condition_value else else_value)
-        return df
-
-    new_value = f'{upperhand}' + df.index.astype(str)
-    other_value = f'{lowerhand}' + df.index.astype(str)
-    df = add_workid_column(df, 'work_id', first_column, new_value, 'p', other_value)
+    for i in range(0, len(df)):
+        if df[first_column][i] == 'p':
+            df['work_id'] = f'{upperhand}' + df.index.astype(str)
 
     st.write(df)
     #################
