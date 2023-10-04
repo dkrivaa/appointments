@@ -63,13 +63,19 @@ def organize():
     def make_work_id():
         for i in range(0, len(df)):
             condition = df[first_column][i]
-            st.write(condition)
+            if df[first_column][i] == 'p':
+                df['work_id'] = f'{upperhand}' + df.index.astype(str)
+            else:
+                df['work_id'] = f'{lowerhand}' + df.index.astype(str)
+
+
     # df['work_id'] = df.apply(lambda df: f'{upperhand}' + df.index.astype(str) if df[first_column] == 'p'
     #                          else f'{lowerhand}' + df.index.astype(str))
     #
-    # st.write(df)
-
     make_work_id()
+
+    st.write(df)
+
     #################
 
 
