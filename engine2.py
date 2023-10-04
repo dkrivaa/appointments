@@ -67,7 +67,7 @@ def organize():
 
     new_value = f'{upperhand}' + df.index.astype(str)
     other_value = f'{lowerhand}' + df.index.astype(str)
-    df = add_workid_column(df, 'work_id', new_value, 'p', other_value)
+    df = add_workid_column(df, 'work_id', first_column, new_value, 'p', other_value)
 
     st.write(df)
     #################
