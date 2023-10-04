@@ -59,11 +59,11 @@ def organize():
     df.rename(columns={df.columns[1]: 'id'}, inplace=True)
 
     #################
-    df['work_id'] = df['id']
+    # df['work_id'] = df['id']
     st.write(df)
 
-    df['work-id'] = df.apply(lambda row: f'{upperhand}' + str(row['work_id']) if row[first_column] == 'p'
-    else f'{lowerhand}' + str(row['work_id']), axis=1)
+    df['work-id'] = df.apply(lambda row: f'{upperhand}' + str(row['id']) if row[first_column] == 'p'
+    else f'{lowerhand}' + str(row['id']), axis=1)
 
     st.write(df)
     #################
