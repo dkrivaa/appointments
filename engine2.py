@@ -75,8 +75,8 @@ def organize():
     # making preferences into list and dropping the individual columns
     def make_list(row):
         col_list = []
-        for i in range(2, len(df.columns)):
-            col_list.append(f'pref_{i-1}')
+        for i in range(3, len(df.columns)):
+            col_list.append(f'pref_{i-2}')
         pref_list = list(row[col_list])
         pref_list = [x for x in pref_list if x != f'{upperhand}0' and x != f'{lowerhand}0']
         if len(pref_list) == len(set(pref_list)):
