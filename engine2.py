@@ -61,11 +61,10 @@ def organize():
 
     #################
     st.write(df)
+    x = df[first_column].value_counts()['p'] + 1
 
     df['work_id'] = np.where(df[first_column] == 'p', f'{upperhand}' + (df.index+1).astype(str),
-                             f'{lowerhand}' + (df.index-4).astype(str))
-    # df.loc[df[first_column] == 'p', 'work_id'] = f'{upperhand}' + df.index.astype(str)
-    # df.loc[~df[first_column] == 'e', 'work_id'] = f'{lowerhand}' + df.index.astype(str)
+                             f'{lowerhand}' + (df.index-x).astype(str))
 
     st.write(df)
 
