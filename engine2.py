@@ -60,6 +60,8 @@ def organize():
 
     #################
     df['work_id'] = df['id']
+    st.write(df)
+
     df['work-id'] = df.apply(lambda row: f'{upperhand}' + str(row['work_id']) if row[first_column] == 'p'
     else f'{lowerhand}' + str(row['work_id']), axis=1)
 
