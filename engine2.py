@@ -49,6 +49,12 @@ def read_data():
 
 def organize():
     df = st.session_state.df
+    #################
+    df['work-id'] = df.apply(lambda row: f'{upperhand}' + str(int(row['id'])) if row[first_column] == 'p'
+                                 else f'{lowerhand}' + str(int(row['id'])), axis=1)
+
+    st.write(df)
+    #################
 
     upperhand = st.session_state.upperhand
     lowerhand = st.session_state.lowerhand
