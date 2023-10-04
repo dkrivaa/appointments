@@ -239,9 +239,9 @@ def organize():
     pos_count = 0
     emp_count = 0
     for i in range(0, len(df_position)):
-        real_candidate = (df['id'][df['work_id'] == tentative_appoint[i][1]]).iloc[1]
+        real_candidate = (df['id'][df['work_id'] == tentative_appoint[i][1]])
         real_position = tentative_appoint[i][0]
-        st.write(f'Appoint **{real_candidate}** to **{tentative_appoint[i][0]}**')
+        st.write(f'Appoint **{real_candidate.iloc[1]}** to **{tentative_appoint[i][0]}**')
 
         # Calculating how many got one of top wishes
         if tentative_appoint[i][1] in position_dict[tentative_appoint[i][0]]:
