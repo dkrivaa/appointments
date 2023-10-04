@@ -62,7 +62,7 @@ def organize():
     st.write(df)
 
     for i in range(0, len(df)):
-        if df[first_column][i] == 'p':
+        if df.iloc[df[first_column]][i] == 'p':
             df['work_id'] = f'{upperhand}' + df.index.astype(str)
 
     st.write(df)
