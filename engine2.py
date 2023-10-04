@@ -61,20 +61,13 @@ def organize():
     #################
     st.write(df)
 
-    condition = []
-    for i in range(0, len(df)):
-        condition.append(df[first_column][i])
-        # if df[first_column][i] == 'p':
-        #     df['work_id'][i] = f'{upperhand}' + df.index.astype(str)
-        # else:
-        #     df['work_id'][i] = f'{lowerhand}' + df.index.astype(str)
+    x = df[first_column]
+    df['work_id'] = df.apply(lambda x: f'{upperhand}' + df.index.astype(str) if x == 'p'
+                             else f'{lowerhand}' + df.index.astype(str))
 
 
-    # df['work_id'] = df.apply(lambda df: f'{upperhand}' + df.index.astype(str) if df[first_column] == 'p'
-    #                          else f'{lowerhand}' + df.index.astype(str))
-    #
 
-    st.write(condition)
+    st.write(df)
 
     #################
 
