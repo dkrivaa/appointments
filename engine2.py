@@ -79,7 +79,8 @@ def organize():
             col_list.append(f'pref_{i-1}')
         pref_list = list(row[col_list])
         pref_list = [x for x in pref_list if x != f'{upperhand}0' and x != f'{lowerhand}0']
-
+        ####################################
+        st.write(len(pref_list), len(set(pref_list)))
 
         if len(pref_list) == len(set(pref_list)):
             return pref_list
