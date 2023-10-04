@@ -65,10 +65,10 @@ def organize():
                              f'{lowerhand}' + (df.index-x).astype(str))
 
     for i in range(3, len(df.columns)):
-        df.rename(columns={df.columns[i]: f'pref_{i-1}'}, inplace=True)
+        df.rename(columns={df.columns[i]: f'pref_{i-2}'}, inplace=True)
 
     # Adding the matchee's to preferences to imply if referring to position or employee
-        column_name = f'pref_{i-1}'
+        column_name = f'pref_{i-2}'
         df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(int(row[column_name])) if row[first_column] == 'p'
                                    else f'{upperhand}' + str(int(row[column_name])), axis=1)
 
