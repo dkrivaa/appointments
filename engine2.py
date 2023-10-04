@@ -50,7 +50,7 @@ def read_data():
 
         except KeyError as e:
             st.write('Your file is not compatible. Download CSV example file '
-                     '(see top of page')
+                     '(see top of page)')
 
 
 def organize():
