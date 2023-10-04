@@ -61,7 +61,7 @@ def organize():
     #################
     st.write(df)
 
-    x = df[first_column]
+    x = df.loc[df[first_column]]
     df['work_id'] = df.apply(lambda x: f'{upperhand}' + df.index.astype(str) if x == 'p'
                              else f'{lowerhand}' + df.index.astype(str))
 
