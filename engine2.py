@@ -90,6 +90,7 @@ def organize():
 
     ################################
     st.write(df)
+    st.write(df.shape)
     ################################
     df['prefs'] = df.apply(make_list, axis=1)
 
