@@ -3,6 +3,8 @@ import streamlit as st
 import engine2
 import example
 
+engine2.start()
+
 ###############################################
 ### EXAMPLE FILE
 df = example.example()
@@ -17,7 +19,6 @@ st.download_button('Download example CSV file',
 st.markdown('___')
 #########################################
 
-engine2.start()
 
 
 
