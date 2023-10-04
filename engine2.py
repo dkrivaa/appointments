@@ -49,7 +49,7 @@ def read_data():
                     organize()
 
         except KeyError as e:
-            st.write('Your file is not compatible. Download CSV example file'
+            st.write('Your file is not compatible. Download CSV example file '
                      '(see top of page')
 
 
