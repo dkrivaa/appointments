@@ -39,7 +39,11 @@ def start():
 def read_data():
     start_container = st.container()
     with start_container:
-        st.subheader('Upload your data file here')
+        st.markdown(f'<span style="color: #144272; '
+                    f'font-size: 24px"><b>'
+                    f'Upload your data file here'
+                    f'</b></span>'
+                    , unsafe_allow_html=True)
         file = st.file_uploader('Choose CSV file', 'csv')
         try:
             if file is not None:
