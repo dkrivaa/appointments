@@ -19,6 +19,7 @@ def start():
     mission = st.radio('What would you like to match?', (
         'open positions and candidates',
         ), disabled=True)
+    st.write(mission)
     if mission == 'Match open positions and candidates':
         upperhand = 'position'
         lowerhand = 'candidate'
