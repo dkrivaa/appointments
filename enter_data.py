@@ -10,12 +10,11 @@ def enter_data():
         n_prefs_emp = st.number_input('Candidates - Max umber of choices',
                                       min_value=1, max_value=10, value=3)
         submit1 = st.form_submit_button('Press to continue', type='primary')
-    biggest = max(n_prefs_pos, n_prefs_emp)
-    st.write(biggest)
-        # if submit1:
-        #     # Making empty dataframe
-        #     biggest = max[n_prefs_pos, n_prefs_emp]
-        #     st.write(biggest)
+
+        if submit1:
+            # Making empty dataframe
+            biggest = max(n_prefs_pos, n_prefs_emp)
+            st.write(biggest)
         #
         #     df_data = {'col1': [], 'col2': [],  }
         #
