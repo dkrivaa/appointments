@@ -4,6 +4,7 @@ import numpy as np
 import streamlit as st
 import pandas as pd
 
+
 def start():
     st.markdown(f'<span style="color: #4b7fd1; '
                 f'font-size: 36px"><b>The MATCH-BOX</b></span>'
@@ -13,9 +14,6 @@ def start():
                 f'Making the best match !!'
                 f'</b></span>'
                 , unsafe_allow_html=True)
-
-    # st.header('The MATCH-BOX')
-    # st.write('Making the best match')
 
     # What to match?
     mission = st.radio('What would you like to match?', (
