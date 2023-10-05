@@ -9,7 +9,7 @@ def start():
     st.markdown(f'<span style="color: #144272; '
                 f'font-size: 36px"><b>The MATCH-BOX</b></span>'
                 , unsafe_allow_html=True)
-    st.markdown(f'<span style="color: #205295; '
+    st.markdown(f'<span style="color: #144272; '
                 f'font-size: 24px"><b>'
                 f'Making the best match !!'
                 f'</b></span>'
