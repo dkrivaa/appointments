@@ -14,18 +14,21 @@ def start():
                 f'Making the best match !!'
                 f'</b></span>'
                 , unsafe_allow_html=True)
-
+    mission_options = ["Match 'open positions' with 'candidates'"]
     # What to match?
     mission = st.radio('What would you like to match?', (
-        "Match 'open positions' with 'candidates'",
+        mission_options
         ), disabled=True)
-    if mission == "Match 'open positions' with 'candidates'":
+    if mission == mission_options[0]:
         upperhand = 'position'
         lowerhand = 'candidate'
 
     if mission == 'other':
         upperhand = st.text_input('who/what to match:')
         lowerhand = st.text_input('with whom/what?:')
+
+    if mission_options not in st.session_state:
+        st.session_state.mission_options = mission_options
 
     if mission not in st.session_state:
         st.session_state.mission = mission
@@ -260,6 +263,7 @@ def organize():
 
     real_position_list = []
     real_candidate_list = []
+    mission_options = st.session_state.mission_options
     mission = st.session_state.mission
 
     for i in range(0, len(df_position)):
@@ -268,7 +272,7 @@ def organize():
         real_position_list.append(real_position)
         real_candidate_list.append(real_candidate)
         # Writing the results to screen and adapt the text to context
-        if mission == "Match 'open positions' with 'candidates'":
+        if mission == mission_options[0]:
             st.write(f'Appoint **{real_candidate}** to **{real_position}**')
 
         # Calculating how many got one of top wishes
