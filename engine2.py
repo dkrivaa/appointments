@@ -77,7 +77,7 @@ def organize():
     lowerhand = st.session_state.lowerhand
 
     # Renaming columns
-    first_column = 'types'
+    first_column = '2types'
     df.rename(columns={df.columns[0]: first_column}, inplace=True)
     df.rename(columns={df.columns[1]: 'id'}, inplace=True)
 
