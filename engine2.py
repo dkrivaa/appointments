@@ -110,7 +110,9 @@ def organize():
     position_list = df_position['work_id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
-
+    ####################
+    st.write(position_list)
+    ####################
     df_employee = df.loc[df[first_column] == 'type2']
     employee_list = df_employee['work_id'].tolist()
     employee_pref_list = df_employee['prefs'].tolist()
@@ -192,9 +194,7 @@ def organize():
         # st.write(f'Dealing with {position}')
 
         # Sorting position pref list by combined points of prefs
-        best_list = []
-        ###############
-        st.write(position_dict[position])
+
         for employee in position_dict[position]:
             point = points(position, employee)
             best_list.append((employee, point))
