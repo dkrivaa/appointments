@@ -38,7 +38,7 @@ def start():
     if lowerhand not in st.session_state:
         st.session_state.lowerhand = lowerhand
 
-    st.divider(''':rainbow[]''')
+    st.header('', divider='rainbow')
     read_data()
 
 
