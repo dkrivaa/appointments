@@ -45,24 +45,24 @@ def read_data():
                     f'</b></span>'
                     , unsafe_allow_html=True)
         file = st.file_uploader('Choose CSV file', 'csv')
-        # try:
-        if file is not None:
-            df = pd.read_csv(file, encoding='windows-1255')
-            df = df.fillna(int(0))
+        try:
+            if file is not None:
+                df = pd.read_csv(file, encoding='windows-1255')
+                df = df.fillna(int(0))
 
-            if df not in st.session_state:
-                st.session_state.df = df
+                if df not in st.session_state:
+                    st.session_state.df = df
 
-            st.write('Your file has been uploaded successfully')
-            continue_button = st.button('press to continue', type='primary')
+                st.write('Your file has been uploaded successfully')
+                continue_button = st.button('press to continue', type='primary')
 
-            if continue_button:
-                organize()
+                if continue_button:
+                    organize()
 
 
-        # except KeyError as e:
-        #     st.write('Your file is not compatible. Download CSV example file '
-        #              '(see bottom of page)')
+        except KeyError as e:
+            st.write('Your file is not compatible. Download CSV example file '
+                     '(see bottom of page)')
 
 
 def organize():
@@ -86,7 +86,7 @@ def organize():
 
     # Adding the matchee's to preferences to imply if referring to position or employee
         column_name = f'pref_{i-1}'
-        df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(int(row[column_name])) if row[first_column] == 'p'
+        df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(int(row[column_name])) if row[first_column] == 'type1'
                                    else f'{upperhand}' + str(int(row[column_name])), axis=1)
 
     # making preferences into list and dropping the individual columns
@@ -110,9 +110,7 @@ def organize():
     position_list = df_position['work_id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
-    ####################
-    st.write(df_position)
-    ####################
+
     df_employee = df.loc[df[first_column] == 'type2']
     employee_list = df_employee['work_id'].tolist()
     employee_pref_list = df_employee['prefs'].tolist()
