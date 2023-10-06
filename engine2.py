@@ -19,7 +19,7 @@ def start():
     mission = st.radio('What would you like to match?', (
         "Match 'open positions' with candidates",
         ), disabled=True)
-    if mission == 'Match open positions and candidates':
+    if mission == "Match 'open positions' with candidates":
         upperhand = 'position'
         lowerhand = 'candidate'
 
@@ -268,7 +268,7 @@ def organize():
         real_position_list.append(real_position)
         real_candidate_list.append(real_candidate)
         # Writing the results to screen and adapt the text to context
-        if mission == 'Match open positions and candidates':
+        if mission == "Match 'open positions' with candidates":
             st.write(f'Appoint **{real_candidate}** to **{real_position}**')
 
         # Calculating how many got one of top wishes
