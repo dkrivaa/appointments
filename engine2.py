@@ -59,7 +59,6 @@ def read_data():
                 if continue_button:
                     organize()
 
-
         except KeyError as e:
             st.write('Your file is not compatible. Download CSV example file '
                      '(see bottom of page)')
