@@ -192,7 +192,7 @@ def organize():
         # st.write(f'Dealing with {position}')
 
         # Sorting position pref list by combined points of prefs
-
+        best_list = []
         for employee in position_dict[position]:
             point = points(position, employee)
             best_list.append((employee, point))
