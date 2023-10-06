@@ -71,13 +71,13 @@ def organize():
     lowerhand = st.session_state.lowerhand
 
     # Renaming columns
-    first_column = f'{upperhand}_or_{lowerhand}'
+    first_column = 'types'
     df.rename(columns={df.columns[0]: first_column}, inplace=True)
     df.rename(columns={df.columns[1]: 'id'}, inplace=True)
 
     # making generic id column - positions and candidates
-    x = df[first_column].value_counts()['p'] - 1
-    df['work_id'] = np.where(df[first_column] == 'p', f'{upperhand}' + (df.index+1).astype(str),
+    x = df[first_column].value_counts()['type1'] - 1
+    df['work_id'] = np.where(df[first_column] == 'type1', f'{upperhand}' + (df.index+1).astype(str),
                              f'{lowerhand}' + (df.index-x).astype(str))
 
     for i in range(2, len(df.columns)-1):
@@ -105,12 +105,12 @@ def organize():
     df['prefs'] = df.apply(make_list, axis=1)
 
     # breaking dataframe into two parts for positions and officers
-    df_position = df.loc[df[first_column] == 'p']
+    df_position = df.loc[df[first_column] == 'type1']
     position_list = df_position['work_id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
 
-    df_employee = df.loc[df[first_column] == 'e']
+    df_employee = df.loc[df[first_column] == 'type2']
     employee_list = df_employee['work_id'].tolist()
     employee_pref_list = df_employee['prefs'].tolist()
     employee_dict = dict(zip(employee_list, employee_pref_list))
