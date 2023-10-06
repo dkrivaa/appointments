@@ -45,22 +45,21 @@ def read_data():
                     f'</b></span>'
                     , unsafe_allow_html=True)
         file = st.file_uploader('Choose CSV file', 'csv')
-        try:
-            if file is not None:
-                df = pd.read_csv(file, encoding='windows-1255')
-                df = df.fillna(int(0))
+        # try:
+        if file is not None:
+            df = pd.read_csv(file, encoding='windows-1255')
+            df = df.fillna(int(0))
 
-                if df not in st.session_state:
-                    st.session_state.df = df
+            if df not in st.session_state:
+                st.session_state.df = df
 
-                st.write('Your file has been uploaded successfully')
-                continue_button = st.button('press to continue', type='primary')
+            st.write('Your file has been uploaded successfully')
+            continue_button = st.button('press to continue', type='primary')
 
-                if continue_button:
-                    organize()
+            if continue_button:
+                organize()
 
-        except:
-            pass
+
         # except KeyError as e:
         #     st.write('Your file is not compatible. Download CSV example file '
         #              '(see bottom of page)')
