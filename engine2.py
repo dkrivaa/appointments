@@ -116,12 +116,6 @@ def organize():
     employee_pref_list = df_employee['prefs'].tolist()
     employee_dict = dict(zip(employee_list, employee_pref_list))
 
-    ##########################
-    st.write(position_list)
-    st.write(employee_list)
-    ##########################
-
-
     # Getting the number of max preferences for upperhand (positions) and lowerhand (employees)
     num_of_prefs_upperhand = len(max(position_pref_list, key=len))
     num_of_prefs_lowerhand = len(max(employee_pref_list, key=len))
@@ -186,6 +180,9 @@ def organize():
                 position_points = 0
             else:
                 position_points = 10 + num_of_prefs_upperhand - position_dict[position].index(employee)
+            #####################
+            st.write(position)
+            ####################
 
             if (position not in employee_dict[employee]) or (position == f'{upperhand}0'):
                 employee_points = 0
