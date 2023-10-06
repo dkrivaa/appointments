@@ -267,7 +267,7 @@ def organize():
         real_position = (df['id'][df['work_id'] == tentative_appoint[i][0]]).iloc[0]
         real_position_list.append(real_position)
         real_candidate_list.append(real_candidate)
-        # Writing the results to screen
+        # Writing the results to screen and adapt the text to context
         if mission == 'Match open positions and candidates':
             st.write(f'Appoint **{real_candidate}** to **{real_position}**')
 
