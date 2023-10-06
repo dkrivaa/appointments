@@ -16,7 +16,7 @@ def example():
     pref_1 = [2, 2, 2, 2, 12, 5, 4, 5, 1, 1, 2, 5, 4, 2, 2, 4, 2, 5, 4, 4, 4, 1, 2, 3, 4]
     pref_2 = [19, 12, 14, 7, 3, 1, 1, 2, 3, 5, 1, 2, 1, 3, 4, 1, 1, 3, 2, 1, 3, 2, 3, 1, 5]
     pref_3 = [5, 1, 11, 18, 19, 2, 3, 3, 2, 2, 4, 3, 5, 1, 3, 2, 3, 1, 1, 5, 5, 3, 1, 4, 2]
-    data = {'types': types, 'id': id, 'pref_1': pref_1,
+    data = {'2types': types, 'id': id, 'pref_1': pref_1,
             'pref_2': pref_2, 'pref_3': pref_3}
 
     df = pd.DataFrame(data)
