@@ -116,6 +116,12 @@ def organize():
     employee_pref_list = df_employee['prefs'].tolist()
     employee_dict = dict(zip(employee_list, employee_pref_list))
 
+    ##########################
+    st.write(position_list)
+    st.write(employee_list)
+    ##########################
+
+
     # Getting the number of max preferences for upperhand (positions) and lowerhand (employees)
     num_of_prefs_upperhand = len(max(position_pref_list, key=len))
     num_of_prefs_lowerhand = len(max(employee_pref_list, key=len))
