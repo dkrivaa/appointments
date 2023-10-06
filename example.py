@@ -3,7 +3,11 @@ import pandas as pd
 
 # Example data
 def example():
-    types = ['type1', 'type1', 'type1', 'type1', 'type1', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2', 'type2']
+    types = ['position', 'position', 'position', 'position', 'position',
+             'candidate', 'candidate', 'candidate', 'candidate', 'candidate',
+             'candidate', 'candidate', 'candidate', 'candidate', 'candidate',
+             'candidate', 'candidate', 'candidate', 'candidate', 'candidate',
+             'candidate', 'candidate', 'candidate', 'candidate', 'candidate']
     id = ['משרה1', 'משרה2', 'משרה3', 'משרה4', 'משרה5',
           'מועמד1', 'מועמד2', 'מועמד3', 'מועמד4', 'מועמד5',
           'מועמד6', 'מועמד7', 'מועמד8', 'מועמד9', 'מועמד10',

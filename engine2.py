@@ -79,8 +79,8 @@ def organize():
     df.rename(columns={df.columns[1]: 'id'}, inplace=True)
 
     # making generic id column - positions and candidates
-    x = df[first_column].value_counts()['type1'] - 1
-    df['work_id'] = np.where(df[first_column] == 'type1', f'{upperhand}' + (df.index+1).astype(str),
+    x = df[first_column].value_counts()[f'{upperhand}'] - 1
+    df['work_id'] = np.where(df[first_column] == f'{upperhand}', f'{upperhand}' + (df.index+1).astype(str),
                              f'{lowerhand}' + (df.index-x).astype(str))
 
     for i in range(2, len(df.columns)-1):
@@ -88,7 +88,7 @@ def organize():
 
     # Adding the matchee's to preferences to imply if referring to position or employee
         column_name = f'pref_{i-1}'
-        df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(int(row[column_name])) if row[first_column] == 'type1'
+        df[column_name] = df.apply(lambda row: f'{lowerhand}' + str(int(row[column_name])) if row[first_column] == f'{upperhand}'
                                    else f'{upperhand}' + str(int(row[column_name])), axis=1)
 
     # making preferences into list and dropping the individual columns
@@ -108,12 +108,12 @@ def organize():
     df['prefs'] = df.apply(make_list, axis=1)
 
     # breaking dataframe into two parts for positions and officers
-    df_position = df.loc[df[first_column] == 'type1']
+    df_position = df.loc[df[first_column] == f'{upperhand}']
     position_list = df_position['work_id'].tolist()
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
 
-    df_employee = df.loc[df[first_column] == 'type2']
+    df_employee = df.loc[df[first_column] == f'{lowerhand}']
     employee_list = df_employee['work_id'].tolist()
     employee_pref_list = df_employee['prefs'].tolist()
     employee_dict = dict(zip(employee_list, employee_pref_list))
