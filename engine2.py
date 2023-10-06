@@ -180,9 +180,6 @@ def organize():
                 position_points = 0
             else:
                 position_points = 10 + num_of_prefs_upperhand - position_dict[position].index(employee)
-            #####################
-            st.write(position, employee)
-            ####################
 
             if (position not in employee_dict[employee]) or (position == f'{upperhand}0'):
                 employee_points = 0
@@ -196,6 +193,8 @@ def organize():
 
         # Sorting position pref list by combined points of prefs
         best_list = []
+        ###############
+        st.write(position_dict[position])
         for employee in position_dict[position]:
             point = points(position, employee)
             best_list.append((employee, point))
