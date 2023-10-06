@@ -38,7 +38,7 @@ def start():
     if lowerhand not in st.session_state:
         st.session_state.lowerhand = lowerhand
 
-    st.markdown('___')
+    st.markdown('___', color='rainbow')
     read_data()
 
 
