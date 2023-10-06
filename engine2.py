@@ -17,7 +17,7 @@ def start():
 
     # What to match?
     mission = st.radio('What would you like to match?', (
-        'Match open positions and candidates',
+        "Match 'open positions' with candidates",
         ), disabled=True)
     if mission == 'Match open positions and candidates':
         upperhand = 'position'
