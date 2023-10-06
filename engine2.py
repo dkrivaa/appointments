@@ -302,7 +302,7 @@ def organize():
                        type='primary')
 
     # Summary data
-    st.markdown('___')
+    st.header('', divider='orange')
 
     st.subheader('Summary')
     st.write(f'Number of **{upperhand}s** that got one of top wishes: **{pos_count}** '
