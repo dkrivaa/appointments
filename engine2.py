@@ -181,7 +181,7 @@ def organize():
             else:
                 position_points = 10 + num_of_prefs_upperhand - position_dict[position].index(employee)
             #####################
-            st.write(employee)
+            st.write(position, employee)
             ####################
 
             if (position not in employee_dict[employee]) or (position == f'{upperhand}0'):
