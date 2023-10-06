@@ -38,8 +38,7 @@ def start():
     if lowerhand not in st.session_state:
         st.session_state.lowerhand = lowerhand
 
-    # st.header('', divider='rainbow')
-    st.markdown('___')
+    st.header('', divider='rainbow')
     read_data()
 
 

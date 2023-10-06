@@ -8,7 +8,7 @@ engine2.start()
 
 ###############################################
 ### EXAMPLE FILE
-st.markdown('___')
+st.header('', divider='rainbow')
 
 df = example.example()
 def convert_df(df):
