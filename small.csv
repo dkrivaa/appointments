@@ -1,26 +1,26 @@
-position_or_employee,id,pref_1,pref_2,pref_3,pref_4,pref_5
-p,ניסוי,2,19,5,8,10
-p,"רמ""ח משאבים",2,12,1,3,
-p,123,2,14,11,19,13
-p,position4,2,7,18,9,4
-p,position5,12,3,19,11,9
-e,candidate1,1,2,5,,
-e,"משה ליאור / את""ל",2,1,4,,
-e,candidate3,1,2,5,,
-e,candidate4,2,3,1,,
-e,candidate5,1,5,2,,
-e,candidate6,3,1,4,,
-e,candidate7,4,5,3,,
-e,candidate8,4,3,5,,
-e,candidate9,4,3,1,,
-e,candidate10,3,4,5,,
-e,candidate11,5,1,3,,
-e,חיים,5,4,3,,
-e,candidate13,5,3,1,,
-e,candidate14,4,5,1,,
-e,candidate15,4,1,5,,
-e,candidate16,4,3,5,,
-e,candidate17,5,2,1,,
-e,candidate18,2,5,1,,
-e,candidate19,3,5,4,,
-e,candidate20,4,5,3,,
+types,id,pref_1,pref_2,pref_3,pref_4,pref_5
+type1,ניסוי,2,19,5,8,10
+type1,"רמ""ח משאבים",2,12,1,3,
+type1,123,2,14,11,19,13
+type1,position4,2,7,18,9,4
+type1,position5,12,3,19,11,9
+type2,candidate1,1,2,5,,
+type2,"משה ליאור / את""ל",2,1,4,,
+type2,candidate3,1,2,5,,
+type2,candidate4,2,3,1,,
+type2,candidate5,1,5,2,,
+type2,candidate6,3,1,4,,
+type2,candidate7,4,5,3,,
+type2,candidate8,4,3,5,,
+type2,candidate9,4,3,1,,
+type2,candidate10,3,4,5,,
+type2,candidate11,5,1,3,,
+type2,חיים,5,4,3,,
+type2,candidate13,5,3,1,,
+type2,candidate14,4,5,1,,
+type2,candidate15,4,1,5,,
+type2,candidate16,4,3,5,,
+type2,candidate17,5,2,1,,
+type2,candidate18,2,5,1,,
+type2,candidate19,3,5,4,,
+type2,candidate20,4,5,3,,
