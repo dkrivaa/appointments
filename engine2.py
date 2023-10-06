@@ -27,6 +27,9 @@ def start():
         upperhand = st.text_input('who/what to match:')
         lowerhand = st.text_input('with whom/what?:')
 
+    if mission not in st.session_state:
+        st.session_state.mission = mission
+
     if upperhand not in st.session_state:
         st.session_state.upperhand = upperhand
     if lowerhand not in st.session_state:
@@ -257,13 +260,16 @@ def organize():
 
     real_position_list = []
     real_candidate_list = []
+    mission = st.session_state.mission
 
     for i in range(0, len(df_position)):
         real_candidate = (df['id'][df['work_id'] == tentative_appoint[i][1]]).iloc[0]
         real_position = (df['id'][df['work_id'] == tentative_appoint[i][0]]).iloc[0]
-        st.write(f'Appoint **{real_candidate}** to **{real_position}**')
         real_position_list.append(real_position)
         real_candidate_list.append(real_candidate)
+        # Writing the results to screen
+        if mission == 'Match open positions and candidates':
+            st.write(f'Appoint **{real_candidate}** to **{real_position}**')
 
         # Calculating how many got one of top wishes
         if tentative_appoint[i][1] in position_dict[tentative_appoint[i][0]]:
