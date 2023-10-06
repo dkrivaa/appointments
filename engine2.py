@@ -111,7 +111,7 @@ def organize():
     position_pref_list = df_position['prefs'].tolist()
     position_dict = dict(zip(position_list, position_pref_list))
     ####################
-    st.write(position_dict)
+    st.write(df_position)
     ####################
     df_employee = df.loc[df[first_column] == 'type2']
     employee_list = df_employee['work_id'].tolist()
