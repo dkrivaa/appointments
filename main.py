@@ -6,6 +6,10 @@ import enter_data
 
 # engine2.start()
 
+if __name__ == '__main__':
+    # call main function
+    engine2.start()
+
 ###############################################
 ### EXAMPLE FILE
 st.header('', divider='rainbow')
@@ -27,6 +31,4 @@ st.download_button('Download example CSV file',
 #     enter_data.enter_data()
 
 
-if __name__ == '__main__':
-    # call main function
-    engine2.start()
+
