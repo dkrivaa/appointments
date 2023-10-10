@@ -31,4 +31,4 @@ st.download_button('Download example CSV file',
 #     enter_data.enter_data()
 
 
-st.link_button('test', 'https://familyshopping.streamlit.app/')
+st.link_button('Enter data online', 'https://familyshopping.streamlit.app/')
